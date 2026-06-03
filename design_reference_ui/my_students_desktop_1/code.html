@@ -1,0 +1,404 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed-dim": "#ffb690",
+                  "primary-container": "#10b981",
+                  "tertiary-fixed-dim": "#ffb3af",
+                  "on-secondary-fixed": "#341100",
+                  "tertiary-container": "#fc7c78",
+                  "on-tertiary-fixed-variant": "#842225",
+                  "on-error": "#ffffff",
+                  "surface-variant": "#d3e4fe",
+                  "surface-container-lowest": "#ffffff",
+                  "outline": "#6c7a71",
+                  "surface": "#f8f9ff",
+                  "inverse-surface": "#213145",
+                  "on-tertiary-container": "#711419",
+                  "error-container": "#ffdad6",
+                  "surface-container": "#e5eeff",
+                  "on-primary-container": "#00422b",
+                  "error": "#ba1a1a",
+                  "surface-container-highest": "#d3e4fe",
+                  "surface-tint": "#006c49",
+                  "on-surface-variant": "#3c4a42",
+                  "surface-dim": "#cbdbf5",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#4edea3",
+                  "primary-fixed-dim": "#4edea3",
+                  "outline-variant": "#bbcabf",
+                  "primary-fixed": "#6ffbbe",
+                  "tertiary-fixed": "#ffdad7",
+                  "on-secondary-container": "#5c2400",
+                  "secondary": "#9d4300",
+                  "on-error-container": "#93000a",
+                  "on-tertiary-fixed": "#410005",
+                  "secondary-container": "#fd761a",
+                  "on-surface": "#0b1c30",
+                  "on-background": "#0b1c30",
+                  "surface-container-high": "#dce9ff",
+                  "tertiary": "#a43a3a",
+                  "on-primary-fixed-variant": "#005236",
+                  "background": "#f8f9ff",
+                  "primary": "#006c49",
+                  "secondary-fixed": "#ffdbca",
+                  "on-primary-fixed": "#002113",
+                  "on-secondary": "#ffffff",
+                  "surface-bright": "#f8f9ff",
+                  "on-secondary-fixed-variant": "#783200",
+                  "on-primary": "#ffffff",
+                  "inverse-on-surface": "#eaf1ff",
+                  "surface-container-low": "#eff4ff"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "xl": "3rem",
+                  "sm": "1rem",
+                  "md": "1.5rem",
+                  "gutter": "1.5rem",
+                  "xs": "0.5rem",
+                  "lg": "2rem",
+                  "base": "4px",
+                  "margin": "2rem"
+          },
+          "fontFamily": {
+                  "label-sm": ["Inter"],
+                  "body-md": ["Inter"],
+                  "h2": ["Inter"],
+                  "body-lg": ["Inter"],
+                  "h3": ["Inter"],
+                  "h1": ["Inter"],
+                  "label-md": ["Inter"],
+                  "body-sm": ["Inter"]
+          },
+          "fontSize": {
+                  "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                  "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                  "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                  "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-lowest border-r border-outline-variant flex flex-col gap-xs p-md z-50 shadow-sm">
+<div class="flex items-center gap-sm px-xs py-sm mb-md">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary">Eduteach</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tutor Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+        Dashboard
+      </a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container rounded-lg font-bold font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+        Students
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+        Schedule
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+        Earnings
+      </a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+        Performance
+      </a>
+</nav>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-sm px-md rounded-lg font-label-md text-label-md flex items-center justify-center gap-xs cursor-pointer transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">add</span>
+        New Lesson
+      </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-gutter w-full sticky top-0 z-40 bg-surface shadow-sm">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-xs pl-xl pr-md text-body-sm focus:ring-2 focus:ring-primary focus:bg-surface transition-all" placeholder="Search students by name, subject, or ID..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary cursor-pointer transition-all active:scale-95 p-xs hover:bg-surface-container-low rounded-full">notifications</button>
+<button class="material-symbols-outlined text-primary cursor-pointer transition-all active:scale-95 p-xs hover:bg-surface-container-low rounded-full">settings</button>
+<div class="w-10 h-10 rounded-full bg-outline-variant overflow-hidden border border-outline-variant cursor-pointer">
+<img alt="Tutor Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a friendly female tutor in a minimalist, bright academic setting. She is wearing a soft neutral blouse and smiling warmly. The background is a clean, out-of-focus modern office with soft natural lighting, conveying expertise and accessibility in a corporate-modern UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjFxgLbPbsJjEhFOj7Y1DpsFU5L7SFgDk-YJYbcU6L4adPqixVFQmZgFc_tFhfx2FYbVkS4Ojf-shQ8sWnLrXPUwAhac_m7n4qZPzpOHPkM058W4aewf0GlmqEhU5gayA_lhHKEd4PeWlkvL6oSYXAEmpNnG-Yc2wFHBT9dNAfV3oXZ9YEm1inhTBCsit35Mi8N7AXPIQ_f4OtrOq6aIUejka86dHLMYJpEwNTMYIAHZ4wfmAjO3Zb-EJKktjacjepp_mpWaRq4Gw">
+</div>
+</div>
+</header>
+<!-- Page Body -->
+<div class="p-margin flex flex-col gap-lg">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface">My Students</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage your roster and track academic milestones.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm bg-white border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">filter_list</span>
+            Filters
+          </button>
+<button class="flex items-center gap-xs px-md py-sm bg-white border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined">download</span>
+            Export CSV
+          </button>
+</div>
+</section>
+<!-- Students Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Student Card 1 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] border-t-4 border-t-primary flex flex-col gap-md transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-variant shadow-sm">
+<img alt="Student 1" class="w-full h-full object-cover" data-alt="A high-quality portrait of a focused young male student in a bright, modern learning environment. He is wearing a simple casual sweater and looking directly at the camera with confidence. The lighting is high-key and professional, matching a clean SaaS dashboard aesthetic with soft blurred bookshelves in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCesQHgm3lt0z3lTMcqMdA-regd_ZgEndKVCoB0CnKFwmLYxpbO6MPo25hmpm9d-UnKJlRLpSgxuGystXwyWzO0dl3pAyy30mkCFJ7HgGFmkCw9htcecTYI7SAJkKCsf3xtiEn2nY-mUVecL5paab2WNE9Rm9MgaqBkPFn1SH5uyAKhAIWZTsmfzOHtbj5AO5kv6XyZoO9HVK_ozJ-ngsoeC-GdWipLBg78K_4ta0RM_skfZGdIDpE8ZOVtwfvGF6iufe4i7oRxBUs">
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Marcus Sterling</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mathematics • Grade 11</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-primary-container/20 text-on-primary-container rounded-full font-label-sm text-label-sm">Active</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">82%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[82%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              Attendance
+            </button>
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+              Feedback
+            </button>
+</div>
+</div>
+<!-- Student Card 2 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] border-t-4 border-t-primary flex flex-col gap-md transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-variant shadow-sm">
+<img alt="Student 2" class="w-full h-full object-cover" data-alt="Close up studio portrait of an adolescent female student with a bright expression, symbolizing academic curiosity. She is set against a clean, off-white background that emphasizes the modern corporate UI's minimal aesthetic. The image is crisp, using soft diffuse light to create an inviting and trustworthy feel for an educational platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX5jzKPfIDcKS1UOVx6EoVs0BaVqKTf1YUZoKCb7wmSePRP0VN18IRdgymPy6AzJAF_p2I1iXF-PVlXFOdozEtSAV7D32-BHREdCS21LwUfeAMFULaBvWA78zCjQ9kRHBmI-YlY_3IBBJsR5zC2kx8_YIY2ZI9sz4sFqcEJHR6J_I0Byv_pu3cuvZ-Py04OZBWPiGfpCoWmTZCsIk0NOmCNtuI_SpuHa-9aArRbsc7OT6LOq5NfQPujEDEJ7uN_xOCIkY2-y97Dd0">
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Elena Rodriguez</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Physics • Advanced Placement</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-secondary-container/20 text-on-secondary-container rounded-full font-label-sm text-label-sm">Pending</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">45%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[45%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              Attendance
+            </button>
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+              Feedback
+            </button>
+</div>
+</div>
+<!-- Student Card 3 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] border-t-4 border-t-primary flex flex-col gap-md transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-variant shadow-sm">
+<img alt="Student 3" class="w-full h-full object-cover" data-alt="A portrait of a male teenage student looking thoughtful and engaged in a clean, modern study area. He is wearing a stylish simple tee, and the scene is lit with bright, natural daylight coming from a window. The style is consistent with a high-end educational tool, featuring a light-touch aesthetic and professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs9XN98JouHlbkf0tnurizl6A82aE0apOh03kudcQ1hGRHWSty4DTc_oqOpSGKtpvDuogyGu12AM5dz14MRW3lw33nOXJtmWRyZIrQhS-YcGRw1WYR4Tk0gqxwfuunIKNE82nCqH-YWiuHDS63M--s0nKTJ1t5cRoTCdMDwvylRNCq8P2pxg9Z0gDnj9BrlEsHznOjjId35FQpSdRDWmL7QGYkMwn3668bkxMoc6hJRLFBSjDpTepzrg08J4fcV9A_TIJAUHOQmO4">
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Jordan Choi</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Economics • Undergraduate</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-primary-container/20 text-on-primary-container rounded-full font-label-sm text-label-sm">Active</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">94%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[94%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              Attendance
+            </button>
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+              Feedback
+            </button>
+</div>
+</div>
+<!-- Student Card 4 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] border-t-4 border-t-primary flex flex-col gap-md transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-variant shadow-sm">
+<img alt="Student 4" class="w-full h-full object-cover" data-alt="A smiling young woman sitting at a desk with a laptop, representing a modern digital student. The environment is a contemporary, white-walled co-working space or library with soft cool-toned lighting. The image captures a sense of productivity and progress, aligning with a corporate minimalist design system for an educational portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWpePaGzaJBOpRQa6nN7ffGF1Ym1S1UDUqBID-2k1tR0sg81AFJSBmqK6KPKXBwe2Xm0gU72n6lGQW9fOiVuK9WCpHCIpRYJ-h1ZIsjQzr97_ZlOpGojn4eMvUOlyBT0WjGF1nGkKhXt8jCwFkz9YJ0uM9xGeCpBvz8GZMQ7MTGm1yVycom_MUddXy9p_DRXgLcz0Qd0_Vm7YX0FdIdr-4oH9MyWvjn9iTVrUIssvGUQSGNjlLyO5KxmRtOwWswfQDuQzIpnclX7s">
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Sophia Chen</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Chemistry • Grade 12</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-primary-container/20 text-on-primary-container rounded-full font-label-sm text-label-sm">Active</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">67%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[67%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              Attendance
+            </button>
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+              Feedback
+            </button>
+</div>
+</div>
+<!-- Student Card 5 -->
+<div class="bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] border-t-4 border-t-primary flex flex-col gap-md transition-all hover:shadow-md">
+<div class="flex justify-between items-start">
+<div class="flex gap-md items-center">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-surface-variant shadow-sm">
+<img alt="Student 5" class="w-full h-full object-cover" data-alt="A portrait of a male student with a calm and determined expression, set in a brightly lit, high-end educational facility. The background features minimalist architectural lines and a neutral color palette. This professional photo reflects the growth and reliability emphasized in a modern tutor management application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMMgvCEVYJWMF0XrD8N5tm3o5BcK4r1NR4FSRwUkmt_LTKiQpmOOcyRoUC7BydV8c_czuasjINnKT5-eu59BIcp7RcV_AuFKl8I4XuwPIo0NK2WW2QL1W7jbL2EpPQVkoUfpF3Qy0QqWfSs3rAz5bUW_QrgnsbBw70_Rg1RvGz8CMkcbX7huOLmfANg0CTdI8N_bdAMRV6nc77kNabU2IxgHKlwuSOUvCLFsBPY6xmdUkspUiOZWCzD1uTvSpfkFRKz9UfwMMEw20">
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Liam O'Neill</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">History • AP World History</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-primary-container/20 text-on-primary-container rounded-full font-label-sm text-label-sm">Active</span>
+</div>
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">21%</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[21%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-xs">
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+              Attendance
+            </button>
+<button class="flex-1 py-xs border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary-container/10 transition-all flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+              Feedback
+            </button>
+</div>
+</div>
+<!-- Empty State / Add Student Bento Slot -->
+<div class="bg-surface-container border-2 border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center gap-sm p-md cursor-pointer hover:border-primary group transition-all">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-outline group-hover:text-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-h3">add</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant group-hover:text-primary">Assign New Student</p>
+</div>
+</section>
+<!-- Statistics Section (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md mt-lg">
+<div class="md:col-span-2 bg-white p-md rounded-xl shadow-sm border border-[#E2E8F0] flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Weekly Attendance</h3>
+<span class="material-symbols-outlined text-on-surface-variant">more_horiz</span>
+</div>
+<div class="flex items-end justify-between h-40 gap-xs">
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[60%] hover:bg-primary-container/30 transition-all cursor-pointer"></div>
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[85%] hover:bg-primary-container/30 transition-all cursor-pointer"></div>
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[45%] hover:bg-primary-container/30 transition-all cursor-pointer"></div>
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[95%] hover:bg-primary-container/30 transition-all cursor-pointer"></div>
+<div class="w-full bg-primary-container rounded-t-lg h-[75%] hover:bg-primary-container/90 transition-all cursor-pointer"></div>
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[0%]"></div>
+<div class="w-full bg-primary-container/10 rounded-t-lg h-[0%]"></div>
+</div>
+<div class="flex justify-between text-label-sm text-on-surface-variant px-xs">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-md rounded-xl shadow-lg flex flex-col justify-between relative overflow-hidden">
+<!-- Background Decoration -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+<div>
+<h3 class="font-label-md text-label-md opacity-80 uppercase tracking-widest">Roster Health</h3>
+<p class="font-h1 text-h1 mt-sm">96.4%</p>
+<p class="font-body-sm text-body-sm mt-xs opacity-90">Retention rate is up 4% from last academic quarter.</p>
+</div>
+<button class="mt-md bg-white text-primary px-md py-sm rounded-lg font-bold font-label-md text-label-md w-fit hover:bg-surface-bright transition-all shadow-sm">
+            View Analytics
+          </button>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-fixed": "#341100",
+                    "on-error-container": "#93000a",
+                    "surface": "#f8f9ff",
+                    "on-secondary-container": "#5c2400",
+                    "outline-variant": "#bbcabf",
+                    "surface-tint": "#006c49",
+                    "primary-fixed": "#6ffbbe",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-container": "#e5eeff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-secondary-fixed-variant": "#783200",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary": "#006c49",
+                    "on-primary-container": "#00422b",
+                    "secondary": "#9d4300",
+                    "surface-bright": "#f8f9ff",
+                    "primary-container": "#10b981",
+                    "secondary-container": "#fd761a",
+                    "outline": "#6c7a71",
+                    "on-background": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#3c4a42",
+                    "on-tertiary-container": "#711419",
+                    "on-tertiary-fixed": "#410005",
+                    "inverse-primary": "#4edea3",
+                    "inverse-surface": "#213145",
+                    "secondary-fixed-dim": "#ffb690",
+                    "primary-fixed-dim": "#4edea3",
+                    "background": "#f8f9ff",
+                    "on-surface": "#0b1c30",
+                    "on-error": "#ffffff",
+                    "tertiary": "#a43a3a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "on-primary-fixed-variant": "#005236",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#fc7c78",
+                    "on-primary-fixed": "#002113",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "surface-container-highest": "#d3e4fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "gutter": "1.5rem",
+                    "md": "1.5rem",
+                    "sm": "1rem",
+                    "xl": "3rem",
+                    "xs": "0.5rem",
+                    "lg": "2rem",
+                    "margin": "2rem"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h3": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h1": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 6px -1px rgba(100, 116, 139, 0.1), 0 2px 4px -2px rgba(100, 116, 139, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] bg-surface dark:bg-on-background border-r border-outline-variant dark:border-outline flex flex-col py-md">
+<div class="px-gutter mb-lg">
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed leading-none">EduTeach</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Management Portal</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-gutter py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg font-medium transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg font-medium transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="supervisor_account">supervisor_account</span>
+<span class="font-label-md text-label-md">Tutors</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg font-medium transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg font-medium transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center px-gutter py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Payments</span>
+</a>
+<a class="flex items-center px-gutter py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg font-medium transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="assessment">assessment</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="px-gutter mb-md">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                New Schedule
+            </button>
+</div>
+<div class="border-t border-outline-variant pt-md space-y-1">
+<a class="flex items-center px-gutter py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center px-gutter py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 ml-[280px] h-16 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm z-10 flex items-center justify-between px-gutter">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 font-body-sm text-body-sm focus:ring-2 focus:ring-primary" placeholder="Search transactions, tutors or invoices..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-xs">
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold text-on-surface">Admin User</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrator</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="A professional headshot of a middle-aged male administrator with a confident smile, wearing a sharp charcoal suit and a white shirt. The background is a blurred high-end office setting with soft, warm lighting. The image has a clean, corporate aesthetic with high clarity and a sophisticated color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlwxL0LUMgqoO9GFpocj8NyZ8GUawVkYKh9xZWvqk0KNkRj_xXy63p6zxOr4BGhGAAXh7_LFtdjqyg7bzItQK7oaD-M2SMzPc0It0XCWxyUBb3HCCtvwUB7aLzy3LCk108ywLGaJbUsCt6AirboZM11ShPzB9LkCFMkQmOqKIrKfheuy9Vn-VTNZFfj3pD0mAKPC2tcow8DjKpVFK1YnqwPeoMeaMgyy9CMHkWo-6Gib1Ufga1jEfGp72mgRGSvBvV_4yJzza44Uc">
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[280px] mt-16 p-gutter min-h-screen">
+<div class="max-w-[1440px] mx-auto">
+<!-- Breadcrumbs & Header -->
+<div class="mb-lg">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-sm text-label-sm mb-base">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-bold">Payments &amp; Earnings</span>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface">Earnings Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Track and manage tutor payouts for October 2023.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-2 border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary-container/10 transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                            Export Report
+                        </button>
+<button class="px-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+                            Process All Payouts
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-gutter mb-lg">
+<!-- Total Volume -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg custom-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between mb-md">
+<div class="p-3 bg-primary-container/20 rounded-lg text-primary">
+<span class="material-symbols-outlined text-[28px]" data-icon="payments">payments</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary-container bg-primary-container/10 px-2 py-1 rounded-full">+12.5%</span>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Earnings</h3>
+<p class="font-h1 text-h1 text-on-surface mt-base">$24,580.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Across 42 active tutors this month</p>
+</div>
+<!-- Pending Payouts -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg custom-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between mb-md">
+<div class="p-3 bg-secondary-container/20 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-[28px]" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider font-semibold">Pending Payouts</h3>
+<p class="font-h1 text-h1 text-on-surface mt-base">$8,240.50</p>
+<p class="font-label-sm text-label-sm text-secondary-container mt-sm">Scheduled for release on Nov 1st</p>
+</div>
+<!-- Hours Logged -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg custom-shadow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary/5 rounded-bl-full transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between mb-md">
+<div class="p-3 bg-tertiary-container/20 rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-[28px]" data-icon="timer">timer</span>
+</div>
+</div>
+<h3 class="font-body-sm text-body-sm text-on-surface-variant uppercase tracking-wider font-semibold">Hours Logged</h3>
+<p class="font-h1 text-h1 text-on-surface mt-base">1,124 <span class="text-h3 font-normal text-on-surface-variant">hrs</span></p>
+<div class="w-full bg-surface-container mt-sm h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-sm">78% of monthly target reached</p>
+</div>
+</div>
+<!-- SaaS Table Controls -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden custom-shadow">
+<div class="p-md border-b border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div class="flex items-center gap-sm">
+<h4 class="font-h3 text-h3 text-on-surface">Payment Breakdown</h4>
+<span class="px-2 py-0.5 bg-surface-container-high rounded text-on-surface-variant font-label-sm text-label-sm">October 2023</span>
+</div>
+<div class="flex items-center gap-sm">
+<div class="flex border border-outline-variant rounded-lg p-0.5">
+<button class="px-3 py-1 bg-primary text-on-primary rounded font-label-md text-label-md">All</button>
+<button class="px-3 py-1 text-on-surface-variant hover:bg-surface-container-low rounded font-label-md text-label-md">Paid</button>
+<button class="px-3 py-1 text-on-surface-variant hover:bg-surface-container-low rounded font-label-md text-label-md">Pending</button>
+<button class="px-3 py-1 text-on-surface-variant hover:bg-surface-container-low rounded font-label-md text-label-md">Overdue</button>
+</div>
+<button class="p-2 border border-outline-variant rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table Content -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant uppercase text-[11px] font-bold tracking-widest">
+<th class="px-gutter py-4">Tutor</th>
+<th class="px-gutter py-4">Subject</th>
+<th class="px-gutter py-4">Rate / Hr</th>
+<th class="px-gutter py-4">Total Hours</th>
+<th class="px-gutter py-4">Gross Total</th>
+<th class="px-gutter py-4">Status</th>
+<th class="px-gutter py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-4">
+<div class="flex items-center gap-sm">
+<img alt="Tutor profile" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a smiling female tutor in her late 20s with glasses, representing academic excellence. She is in a bright, modern library filled with books. The lighting is natural and airy, reflecting a clean, corporate education brand aesthetic with soft teal and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBthww5qsxg1Pga6Ka971aGnmri2bzfdZLdxUMxMPqOQpGqKuXmfDYzfBI2QeFXjIaRd2NHEdOny-soaj0RrUn9ndtRrHN21labYq0CxT-KKvQAJ5M2h3BTCD9_GGjydteqFRC9NFU-VTL7cwN2dHDAOsgxkoX55IKc37sfsiceJrQrNFs8lo3OCogv-Li6C778mXpH8kIIFhhovpBtqA8ebQg0NyY3FB2mWp7UbE9WqfI0Y9IzmA5VFu4DEsweMnYfoHwJvrI2JvM">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Dr. Sarah Jenkins</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">sarah.j@eduteach.com</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">Advanced Calculus</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">$75.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-semibold">42.5 hrs</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">$3,187.50</span>
+</td>
+<td class="px-gutter py-4">
+<span class="inline-flex items-center gap-xs px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                        Paid
+                                    </span>
+</td>
+<td class="px-gutter py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-4">
+<div class="flex items-center gap-sm">
+<img alt="Tutor profile" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a male tutor in a smart-casual blue shirt, sitting in a contemporary home office with clean lines and a soft bokeh background. The lighting is balanced and crisp, emphasizing a sense of reliability and modern professionalism consistent with high-end SaaS software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoAgOWnwocencjJfXvfcP-WYYUIIj2d2AFx9GBn7iLj7U1fyQgkUCWeLnaL3vQPcdGt-aylvDwU4hIFd4zm86FkIK6_b62hpMTwjQAUC37eBimMJzF-TZnk-ZkT-rnkioxI_Yzc0K5Y0weLm_l_o1M3d_qNQMId4zKJs64JXqm0fYEYyVoHhPNevlaTyTVA2ZRJNzu2EWZa7D7GSs8Gr62RGmzjxy7rucWIRE3tJGEF2LKyHes8S2l6v1hsVpgWK5bRlBxGfxHL2w">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Mark Thompson</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">m.thompson@eduteach.com</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">Data Science 101</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">$60.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-semibold">28.0 hrs</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">$1,680.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="inline-flex items-center gap-xs px-2.5 py-0.5 rounded-full bg-secondary-container/10 text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-gutter py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-4">
+<div class="flex items-center gap-sm">
+<img alt="Tutor profile" class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a young female tutor with an expressive, professional look, wearing a minimalist white blouse. The setting is a bright, sun-drenched workspace with architectural plants. The overall image has a light, corporate feel with high-key lighting and a palette of soft whites and deep teals." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdSI2d0yyIdyJ19oIpnvR3mNnkuKRoJfMNkD8eisx78_FuQX5i3-P5RS5AdpsdEpwWWz24okcRAPVOqPH-D8OhDaifYiXHsA6RH0oNo-lB-lWvZ2yYPwHZ7djLfm4pM1_T2Gz7q5G829ToJoB4kI9A0LgBacWIfXiUbPVPPcA-ZVKrj_Rx0EjG78MYPeZ8PS0iIZyKtohAiODreH-faG-_-UCtfDLApedWiNbv1KHO-lVTphVOVIFiSkLyuY-DSsbXa014Hqa1KeU">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Emily Chen</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">e.chen@eduteach.com</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">Macroeconomics</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">$55.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-semibold">15.0 hrs</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">$825.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="inline-flex items-center gap-xs px-2.5 py-0.5 rounded-full bg-tertiary-container/10 text-tertiary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                        Overdue
+                                    </span>
+</td>
+<td class="px-gutter py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-gutter py-4">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold">
+                                            JS
+                                        </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Julian Smith</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">j.smith@eduteach.com</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">English Literature</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm">$50.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-semibold">32.0 hrs</span>
+</td>
+<td class="px-gutter py-4">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">$1,600.00</span>
+</td>
+<td class="px-gutter py-4">
+<span class="inline-flex items-center gap-xs px-2.5 py-0.5 rounded-full bg-primary-container/10 text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                        Paid
+                                    </span>
+</td>
+<td class="px-gutter py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-md bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Showing 1 to 4 of 42 entries</p>
+<div class="flex items-center gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface transition-colors font-label-md text-label-md">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface transition-colors font-label-md text-label-md">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Layout: Payout Analysis & Recent Logs -->
+<div class="grid grid-cols-12 gap-gutter mt-lg">
+<!-- Payout Chart Card (SaaS Style) -->
+<div class="col-span-12 md:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg custom-shadow">
+<div class="flex justify-between items-start mb-lg">
+<div>
+<h4 class="font-h3 text-h3 text-on-surface">Payout Trends</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly payout volume comparison</p>
+</div>
+<select class="bg-surface-container-low border-none rounded-lg font-label-sm text-label-sm px-3 py-1.5 focus:ring-1 focus:ring-primary">
+<option>Last 6 Months</option>
+<option>Last 12 Months</option>
+</select>
+</div>
+<!-- Mock Chart Visualization -->
+<div class="h-48 flex items-end justify-between gap-base px-2">
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[40%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$4.2k</span>
+</div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[55%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$5.8k</span>
+</div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[75%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$7.9k</span>
+</div>
+<div class="flex-1 bg-primary h-[90%] rounded-t relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$9.4k</span>
+</div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[60%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$6.3k</span>
+</div>
+<div class="flex-1 bg-primary/20 hover:bg-primary/40 transition-colors rounded-t h-[85%] relative group">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-background text-on-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">$8.9k</span>
+</div>
+</div>
+<div class="flex justify-between mt-md text-[11px] font-bold text-on-surface-variant uppercase tracking-tighter">
+<span>May</span>
+<span>Jun</span>
+<span>Jul</span>
+<span>Aug</span>
+<span>Sep</span>
+<span>Oct</span>
+</div>
+</div>
+<!-- Quick Summary Card -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg custom-shadow flex flex-col justify-between">
+<div>
+<h4 class="font-h3 text-h3 text-on-surface mb-md">Payment Health</h4>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Successful Transfers</span>
+</div>
+<span class="font-label-md text-label-md font-bold">94.2%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Average Payout Time</span>
+</div>
+<span class="font-label-md text-label-md font-bold">1.2 Days</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="font-body-sm text-body-sm text-on-surface">Dispute Rate</span>
+</div>
+<span class="font-label-md text-label-md font-bold">0.4%</span>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant">
+<div class="flex items-center gap-sm p-md bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-primary font-bold">Insights:</span> Payouts have increased by 8% compared to last month due to higher student enrollment.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

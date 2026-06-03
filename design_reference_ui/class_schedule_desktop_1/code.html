@@ -1,0 +1,389 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb690",
+                      "primary-container": "#10b981",
+                      "tertiary-fixed-dim": "#ffb3af",
+                      "on-secondary-fixed": "#341100",
+                      "tertiary-container": "#fc7c78",
+                      "on-tertiary-fixed-variant": "#842225",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#d3e4fe",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#6c7a71",
+                      "surface": "#f8f9ff",
+                      "inverse-surface": "#213145",
+                      "on-tertiary-container": "#711419",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#e5eeff",
+                      "on-primary-container": "#00422b",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-tint": "#006c49",
+                      "on-surface-variant": "#3c4a42",
+                      "surface-dim": "#cbdbf5",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#4edea3",
+                      "primary-fixed-dim": "#4edea3",
+                      "outline-variant": "#bbcabf",
+                      "primary-fixed": "#6ffbbe",
+                      "tertiary-fixed": "#ffdad7",
+                      "on-secondary-container": "#5c2400",
+                      "secondary": "#9d4300",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#410005",
+                      "secondary-container": "#fd761a",
+                      "on-surface": "#0b1c30",
+                      "on-background": "#0b1c30",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary": "#a43a3a",
+                      "on-primary-fixed-variant": "#005236",
+                      "background": "#f8f9ff",
+                      "primary": "#006c49",
+                      "secondary-fixed": "#ffdbca",
+                      "on-primary-fixed": "#002113",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "on-secondary-fixed-variant": "#783200",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "3rem",
+                      "sm": "1rem",
+                      "md": "1.5rem",
+                      "gutter": "1.5rem",
+                      "xs": "0.5rem",
+                      "lg": "2rem",
+                      "base": "4px",
+                      "margin": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h2": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "h3": ["Inter"],
+                      "h1": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col gap-xs p-md h-screen border-r border-outline-variant fixed left-0 top-0 w-[280px] bg-surface-container-lowest shadow-sm z-50">
+<div class="flex items-center gap-sm mb-lg px-xs">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">school</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary">Eduteach</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tutor Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs grow">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Students
+            </a>
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                Schedule
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Earnings
+            </a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+                Performance
+            </a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary font-bold py-sm px-md rounded-lg flex items-center justify-center gap-xs active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            New Lesson
+        </button>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[280px]">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center h-16 px-gutter w-full sticky top-0 z-40 bg-surface shadow-sm">
+<div class="flex items-center gap-md">
+<h2 class="font-h3 text-h3 font-bold text-primary">Class Schedule</h2>
+<div class="flex items-center bg-surface-container-low px-sm py-xs rounded-full gap-xs border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm font-body-sm text-on-surface-variant w-48" placeholder="Search lessons..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low p-xs rounded-full transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-primary cursor-pointer hover:bg-surface-container-low p-xs rounded-full transition-colors" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Tutor Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a friendly female tutor in her early 30s. She is smiling warmly at the camera, wearing a smart casual blazer. The background is a clean, bright, out-of-focus modern office space with natural daylight. The lighting is soft and flattering, emphasizing a corporate yet approachable persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjzoGtXWDy6H2lXJj1Sm_hHF9ezEdyggLlaMYvahQKFA69jRIUwYeciLFUMKLjJvVQJuMMvcrqkequQ8Ofoae5RWa0xCYaPgR8hBkEnXmYIF0YdNBU_EBwYjfqR_-TTKdjszdGkpvE9FkL4TERhr-4Opx3Mzw1F6oE4LwTcP473B4CBY6FLeV0_7IlAOLS1a9WiKaseAEBDzo-E0i8rXKu8oJ3kNOeL7JJkOOGE64a-X0N2VT9Q8YeAXpHCS_ew1aGi0qX_FCXhPs">
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-gutter">
+<!-- Calendar Navigation Header -->
+<div class="flex items-center justify-between mb-lg bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs">
+<button class="p-xs hover:bg-surface-container border border-outline-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<h3 class="font-h3 text-h3 px-sm">September 2024</h3>
+<button class="p-xs hover:bg-surface-container border border-outline-variant rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<button class="text-primary font-label-md text-label-md px-md py-xs border border-primary rounded-full hover:bg-primary-container transition-colors">Today</button>
+</div>
+<div class="flex bg-surface-container-low p-base rounded-lg border border-outline-variant">
+<button class="px-md py-xs rounded-md text-on-surface-variant font-label-md text-label-md">Day</button>
+<button class="px-md py-xs rounded-md bg-white shadow-sm text-primary font-bold font-label-md text-label-md">Week</button>
+<button class="px-md py-xs rounded-md text-on-surface-variant font-label-md text-label-md">Month</button>
+</div>
+</div>
+<!-- Weekly Timeline Layout -->
+<div class="grid grid-cols-5 gap-md">
+<!-- Monday -->
+<div class="space-y-md">
+<div class="text-center py-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Mon</p>
+<p class="font-h3 text-h3 text-on-surface">16</p>
+</div>
+<!-- Class Card - Completed -->
+<div class="bg-surface-container-low border-t-4 border-primary p-md rounded-xl space-y-sm opacity-75 grayscale-[0.3]">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-primary/10 text-primary font-label-sm text-label-sm rounded uppercase">Algebra II</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Leo Henderson</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            09:00 - 10:30 AM
+                        </div>
+<div class="pt-sm flex gap-xs">
+<span class="text-primary font-label-sm text-label-sm bg-primary-container px-sm py-xs rounded-full">Completed</span>
+</div>
+</div>
+<!-- Class Card - Completed -->
+<div class="bg-surface-container-low border-t-4 border-primary p-md rounded-xl space-y-sm opacity-75 grayscale-[0.3]">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-secondary/10 text-secondary font-label-sm text-label-sm rounded uppercase">Physics</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Sarah Miller</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            02:00 - 03:30 PM
+                        </div>
+<div class="pt-sm">
+<span class="text-primary font-label-sm text-label-sm bg-primary-container px-sm py-xs rounded-full">Completed</span>
+</div>
+</div>
+</div>
+<!-- Tuesday (Today) -->
+<div class="space-y-md bg-surface-container-lowest p-xs rounded-2xl ring-1 ring-primary/20 shadow-lg">
+<div class="text-center py-sm">
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Tue</p>
+<p class="font-h3 text-h3 text-primary font-bold">17</p>
+</div>
+<!-- Class Card - Upcoming / Current -->
+<div class="bg-white border-t-4 border-primary p-md rounded-xl shadow-md space-y-sm ring-1 ring-primary/10">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-primary/10 text-primary font-label-sm text-label-sm rounded uppercase">Calculus</span>
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="bolt">bolt</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Alex Zhang</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            11:00 - 12:30 PM
+                        </div>
+<div class="flex flex-col gap-xs pt-xs">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-xs rounded-lg active:scale-95 transition-all">Mark Completion</button>
+<button class="w-full border border-outline-variant text-on-surface-variant font-label-md text-label-md py-xs rounded-lg hover:bg-surface-container transition-all">Reschedule</button>
+</div>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-secondary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-secondary/10 text-secondary font-label-sm text-label-sm rounded uppercase">Chemistry</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Elena Rodriguez</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            04:00 - 05:00 PM
+                        </div>
+<div class="flex gap-xs pt-xs">
+<button class="flex-1 border border-primary text-primary font-label-md text-label-md py-xs rounded-lg hover:bg-primary-container transition-all">Details</button>
+</div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="space-y-md">
+<div class="text-center py-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Wed</p>
+<p class="font-h3 text-h3 text-on-surface">18</p>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-tertiary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-tertiary/10 text-tertiary font-label-sm text-label-sm rounded uppercase">Literature</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Jordan Smith</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            10:00 - 11:00 AM
+                        </div>
+<div class="flex gap-xs pt-xs">
+<button class="flex-1 border border-outline-variant text-on-surface-variant font-label-md text-label-md py-xs rounded-lg hover:bg-surface-container transition-all">Reschedule</button>
+</div>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-primary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-primary/10 text-primary font-label-sm text-label-sm rounded uppercase">Geometry</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Leo Henderson</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            01:30 - 03:00 PM
+                        </div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="space-y-md">
+<div class="text-center py-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Thu</p>
+<p class="font-h3 text-h3 text-on-surface">19</p>
+</div>
+<div class="h-32 border-2 border-dashed border-outline-variant rounded-xl flex items-center justify-center bg-surface-container-low/50 group hover:bg-surface-container transition-all cursor-pointer">
+<div class="text-center space-y-xs">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary" data-icon="add_circle">add_circle</span>
+<p class="font-label-sm text-label-sm text-outline-variant group-hover:text-primary">Free Slot</p>
+</div>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-secondary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-secondary/10 text-secondary font-label-sm text-label-sm rounded uppercase">Physics</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Sarah Miller</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            03:00 - 04:30 PM
+                        </div>
+</div>
+</div>
+<!-- Friday -->
+<div class="space-y-md">
+<div class="text-center py-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Fri</p>
+<p class="font-h3 text-h3 text-on-surface">20</p>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-primary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-primary/10 text-primary font-label-sm text-label-sm rounded uppercase">Calculus</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Alex Zhang</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            09:00 - 10:30 AM
+                        </div>
+</div>
+<!-- Class Card - Upcoming -->
+<div class="bg-white border-t-4 border-tertiary p-md rounded-xl shadow-sm space-y-sm">
+<div class="flex justify-between items-start">
+<span class="px-xs py-[2px] bg-tertiary/10 text-tertiary font-label-sm text-label-sm rounded uppercase">Creative Writing</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Mia Thompson</h4>
+<div class="flex items-center gap-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                            11:30 - 12:30 PM
+                        </div>
+</div>
+</div>
+</div>
+<!-- Dashboard Summary Widgets (Asymmetric Layout) -->
+<div class="mt-xl grid grid-cols-12 gap-md">
+<!-- Weekly Stats -->
+<div class="col-span-8 bg-surface-container-lowest p-lg rounded-2xl shadow-sm border border-outline-variant flex justify-between items-center">
+<div class="space-y-sm">
+<p class="font-label-md text-label-md text-on-surface-variant">Weekly Progress</p>
+<h2 class="font-h1 text-h1 text-on-surface">14 / 22 <span class="text-body-lg font-body-lg text-on-surface-variant">Lessons</span></h2>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[63%] shadow-[0_0_10px_rgba(16,185,129,0.3)]"></div>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Earnings</p>
+<p class="font-h3 text-h3 text-primary font-bold">$1,240</p>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Students</p>
+<p class="font-h3 text-h3 text-secondary font-bold">12</p>
+</div>
+</div>
+</div>
+<!-- Quick Insight -->
+<div class="col-span-4 relative overflow-hidden bg-primary p-lg rounded-2xl shadow-lg flex flex-col justify-between text-on-primary">
+<div class="z-10">
+<p class="font-label-md text-label-md opacity-80">Next Lesson in</p>
+<h3 class="font-h1 text-h1 font-bold">45 min</h3>
+</div>
+<div class="z-10 flex items-center justify-between">
+<p class="font-body-sm text-body-sm">Calculus with Alex</p>
+<span class="material-symbols-outlined text-4xl opacity-20" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<!-- Decorative Background element -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

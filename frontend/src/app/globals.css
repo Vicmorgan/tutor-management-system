@@ -1,0 +1,79 @@
+/* ─── Font imports MUST come first before @tailwind directives ─── */
+
+/* ─── Tailwind v3 directives ─── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── M3 Design Tokens ─── */
+:root {
+  --primary: #006c49;
+  --on-primary: #ffffff;
+  --primary-container: #6ffbbe;
+  --on-primary-container: #00422b;
+  --primary-fixed: #6ffbbe;
+  --primary-fixed-dim: #4edea3;
+  --inverse-primary: #4edea3;
+
+  --secondary: #9d4300;
+  --on-secondary: #ffffff;
+  --secondary-container: #fd761a;
+  --on-secondary-container: #5c2400;
+
+  --tertiary: #a43a3a;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #fc7c78;
+  --on-tertiary-container: #711419;
+
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --background: #f8f9ff;
+  --on-background: #0b1c30;
+  --surface: #ffffff;
+  --on-surface: #0b1c30;
+  --surface-variant: #d3e4fe;
+  --on-surface-variant: #3c4a42;
+
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-container-high: #dce9ff;
+  --surface-container-highest: #d3e4fe;
+
+  --outline: #6c7a71;
+  --outline-variant: #bbcabf;
+  --inverse-surface: #213145;
+  --inverse-on-surface: #eaf1ff;
+}
+
+/* ─── Global base styles ─── */
+html, body {
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ─── Material Symbols ─── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ─── Utility animations ─── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

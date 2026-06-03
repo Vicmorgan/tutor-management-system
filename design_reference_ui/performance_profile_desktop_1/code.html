@@ -1,0 +1,426 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Performance &amp; Profile | Eduteach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#ffb690",
+                      "primary-container": "#10b981",
+                      "tertiary-fixed-dim": "#ffb3af",
+                      "on-secondary-fixed": "#341100",
+                      "tertiary-container": "#fc7c78",
+                      "on-tertiary-fixed-variant": "#842225",
+                      "on-error": "#ffffff",
+                      "surface-variant": "#d3e4fe",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#6c7a71",
+                      "surface": "#f8f9ff",
+                      "inverse-surface": "#213145",
+                      "on-tertiary-container": "#711419",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#e5eeff",
+                      "on-primary-container": "#00422b",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#d3e4fe",
+                      "surface-tint": "#006c49",
+                      "on-surface-variant": "#3c4a42",
+                      "surface-dim": "#cbdbf5",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#4edea3",
+                      "primary-fixed-dim": "#4edea3",
+                      "outline-variant": "#bbcabf",
+                      "primary-fixed": "#6ffbbe",
+                      "tertiary-fixed": "#ffdad7",
+                      "on-secondary-container": "#5c2400",
+                      "secondary": "#9d4300",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#410005",
+                      "secondary-container": "#fd761a",
+                      "on-surface": "#0b1c30",
+                      "on-background": "#0b1c30",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary": "#a43a3a",
+                      "on-primary-fixed-variant": "#005236",
+                      "background": "#f8f9ff",
+                      "primary": "#006c49",
+                      "secondary-fixed": "#ffdbca",
+                      "on-primary-fixed": "#002113",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "on-secondary-fixed-variant": "#783200",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-low": "#eff4ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "3rem",
+                      "sm": "1rem",
+                      "md": "1.5rem",
+                      "gutter": "1.5rem",
+                      "xs": "0.5rem",
+                      "lg": "2rem",
+                      "base": "4px",
+                      "margin": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h2": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "h3": ["Inter"],
+                      "h1": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface-container-lowest border-r border-outline-variant flex flex-col gap-xs p-md z-50">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary">Eduteach</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Tutor Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">group</span> Students
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">calendar_month</span> Schedule
+            </a>
+<a class="flex items-center gap-sm p-sm text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg font-label-md" href="#">
+<span class="material-symbols-outlined">payments</span> Earnings
+            </a>
+<a class="flex items-center gap-sm p-sm bg-primary-container text-on-primary-container rounded-lg font-bold font-label-md shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span> Performance
+            </a>
+</nav>
+<button class="mt-auto bg-primary text-on-primary p-sm rounded-lg font-label-md flex items-center justify-center gap-xs transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">add</span> New Lesson
+        </button>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen">
+<!-- TopAppBar Anchor -->
+<header class="sticky top-0 z-40 bg-surface shadow-sm flex justify-between items-center h-16 px-gutter w-full">
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-xl pr-md py-xs bg-surface-container-low border-none rounded-full w-64 focus:ring-2 focus:ring-primary-container transition-all font-body-sm" placeholder="Search students or lessons..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex gap-xs">
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-full">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-sm border-l border-outline-variant pl-md">
+<img alt="Tutor Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a female tutor with a warm, confident expression. She is wearing a modern blazer in a minimalist office setting with soft, natural lighting. The aesthetic is clean and corporate, featuring a soft-focus background of books and a whiteboard, echoing the Eduteach brand colors of muted greens and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe-imWOxSBeT54-aXxSrkC7DLEOzkmx0vUoB8Ca8R9gz7DGjFr30UatA3I025BczpahsySWjruFFOchgzKnqr7Z6y2yMIu4mwL_0VX6Ei0JgJ0oDlPRxrmpyYEPWfH3auu6InO4n8Q5jnwq8oiv4KERa3liDjPH1sRqJudQ3RRwmdmvSSiin4MKGjREH2IYi0d9EdlAWFFyIv-yUsZFa5pXhDsXuG8OIgn4oxLk8EFqPjF90egk79D5x1g1fd9cTLu1-qiZl5U8kA">
+<div class="hidden lg:block">
+<p class="font-label-md text-label-md text-on-surface leading-none">Sarah Jenkins</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mathematics Expert</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-margin max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="mb-lg">
+<h2 class="font-h1 text-h1 text-on-surface mb-xs">Performance &amp; Profile</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Track your growth and manage how students see you.</p>
+</div>
+<div class="bento-grid">
+<!-- Summary Card: Tutor Rating -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant border-t-4 border-t-primary">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-primary-container/20 p-xs rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">+0.2 this month</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Tutor Rating</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-on-surface">4.9</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ 5.0</span>
+</div>
+<div class="mt-md flex gap-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Summary Card: Satisfaction -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant border-t-4 border-t-secondary-container">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-secondary-fixed/20 p-xs rounded-lg">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">sentiment_very_satisfied</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">High performing</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Student Satisfaction</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-on-surface">98%</span>
+</div>
+<div class="mt-md w-full bg-surface-container-high rounded-full h-2 overflow-hidden">
+<div class="bg-secondary-container h-full w-[98%] rounded-full"></div>
+</div>
+</div>
+<!-- Summary Card: Retention -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant border-t-4 border-t-tertiary">
+<div class="flex justify-between items-start mb-md">
+<div class="bg-tertiary-container/20 p-xs rounded-lg">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">sync_alt</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container">Stable</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-xs">Student Retention</p>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-on-surface">84%</span>
+</div>
+<div class="mt-md flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Close up of a young male student smiling, bright outdoor lighting, warm tones, high quality photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4BDt65UsQaPxz5o1N4GMTMON9hOnFXw1PHG6JPHBsydChzWeyws9p5UouNDE9LFuUZ5k2dS7eWPkqblnDua-DoJU37JShQhoCRRepPQj-sRHeOOWG_VTNP9GTDsvde7Eosvcl58qdD3DmSIJk4SDNbppw3LC12I-mhxrJ_ocJk9EnBx2rTkHHf7rZbkNKGZ2Cp7n-cwFhdGs02iv8sK4Qj_NHPVOzId6KkyQmcEn0S06GC5d4_xN3sqG-bUnkmf1TfMxVpcMy1VM">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Portrait of a female professional student with glasses, studio lighting, clean background, focus on educational success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2dnIOJkWBXPTZDklv_WEb-zHNd4bby5j7u-IU-WZ11TTATlg6uKNoEwcFkrs59W_ROh2DT5uDkAX5_ZvZpVi0g0ZYSY3uhZCYwLJVGA6Ev_vtpeXC2G-p8DJXtDSGdTLvaQLHonUxDOlo8YwSG0PY1jMjk7764aQLedQRtksoRSBjWX7ba4ANGHtTcCb1Vwy6qdv41mPczggY8O9zlxbSLxdCsie-68Z9-PnZO8t7SDjjOPUr9eajLEahq18b1l-Kt0nOkUY8INU">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="Young man in a casual learning environment, natural lighting, optimistic expression, sharp detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9F-J32UBI4DVUKzvuYjGzqjSkAuPC-m0TKJDJ01j6FIvcBUWVDR6Ee_nDM8qV-3ouAHK66D0ZM58voxF7-l5w8Yb6tTOZACF8ukxl9A-h-S4dmdclDS3OcCjD1JLjAEvsAx8e51WpyfTsEkcq9-MMO706j_8RK7uhdK73RiamZ19QLVKKp0dDIAkOZrPnFM_w8d4UG0hk4wNyGn-2c3Yjh4FyRC0Jkl9Zln1FDzOyUAEtFPk3l3n1v3UU3qLwMy12lCuwgaLhfYs">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold text-on-surface-variant">+12</div>
+</div>
+</div>
+<!-- Attendance Consistency Chart -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-h3 text-h3 text-on-surface">Attendance Consistency</h3>
+<div class="flex gap-xs bg-surface-container-low p-base rounded-lg">
+<button class="px-sm py-xs bg-white shadow-sm rounded-md font-label-sm text-primary">Last 6 Months</button>
+<button class="px-sm py-xs font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">Yearly</button>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-md px-md">
+<!-- Bar Chart Representation -->
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all group-hover:bg-primary" style="height: 85%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">JAN</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all group-hover:bg-primary" style="height: 92%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FEB</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all group-hover:bg-primary" style="height: 78%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MAR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all group-hover:bg-primary" style="height: 95%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">APR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all group-hover:bg-primary" style="height: 88%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">MAY</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm group">
+<div class="w-full bg-primary rounded-t-lg shadow-lg shadow-primary/20" style="height: 98%;"></div>
+<span class="font-label-sm text-label-sm text-primary font-bold">JUN</span>
+</div>
+</div>
+</div>
+<!-- Profile Identity Section -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-h3 text-h3 text-on-surface">Profile Identity</h3>
+<button class="text-primary font-label-md hover:underline">Edit</button>
+</div>
+<div class="flex flex-col items-center text-center py-md">
+<div class="relative mb-md">
+<img class="w-24 h-24 rounded-full object-cover border-4 border-surface-container" data-alt="Close up of Sarah Jenkins, a professional tutor with a friendly smile, professional attire, modern minimalist background, clean composition, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpXeMEU2njpVD1fXjiWdpNkbldYRQ11jM4VEKUJJAoAMxqM1Ahe2-McfoO2rRVLmgsOVMBesVOK3gok_K8SUjlQSm9UK4i8WnDeBqnVFpPUj1v5MVZsN5t79CPE92uOZnTnqh_xgJMY8nIUehUGz7mafTBJnnGiym8-AnMIlIXFwzkx2TkraN2BushOt9PUPG7JQ_UldJ24dzF2Lz2i4xSfWHrt-t9LPwvtfPydtq3Pa9izBTbuhM6gUuUF2Zj83WECQqd66hOZo">
+<div class="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full border-4 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h4 class="font-h3 text-h3 text-on-surface">Sarah Jenkins</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Senior Mathematics Tutor &amp; Curriculum Designer</p>
+<div class="w-full space-y-sm">
+<div class="flex items-center gap-sm p-sm bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-outline">language</span>
+<span class="font-label-md text-label-md text-on-surface">eduteach.com/tutors/sarahj</span>
+<span class="material-symbols-outlined ml-auto text-outline cursor-pointer hover:text-primary transition-colors">content_copy</span>
+</div>
+<div class="flex flex-wrap gap-xs justify-center pt-xs">
+<span class="px-sm py-1 bg-surface-container-high text-on-surface-variant rounded-full text-[12px] font-bold uppercase tracking-wider">Calculus</span>
+<span class="px-sm py-1 bg-surface-container-high text-on-surface-variant rounded-full text-[12px] font-bold uppercase tracking-wider">Algebra</span>
+<span class="px-sm py-1 bg-surface-container-high text-on-surface-variant rounded-full text-[12px] font-bold uppercase tracking-wider">Physics</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Weekly Availability Management -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl p-md shadow-sm border border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between md:items-center gap-md mb-lg">
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">Weekly Availability</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Set your standard tutoring hours for the week.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm border border-outline-variant text-on-surface-variant rounded-lg font-label-md hover:bg-surface-container-low transition-all">Copy from Last Week</button>
+<button class="px-md py-sm bg-primary text-on-primary rounded-lg font-label-md hover:bg-primary/90 transition-all shadow-sm">Save Changes</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-7 gap-sm">
+<!-- Monday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-primary bg-primary-container/5">
+<p class="font-label-md text-label-md text-primary">MON</p>
+</div>
+<div class="space-y-xs">
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center cursor-pointer hover:brightness-95 transition-all">
+                                    09:00 - 11:00
+                                </div>
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center cursor-pointer hover:brightness-95 transition-all">
+                                    14:00 - 17:00
+                                </div>
+<button class="w-full p-sm border-2 border-dashed border-outline-variant rounded-lg text-outline-variant hover:border-primary-container hover:text-primary transition-all flex justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface">TUE</p>
+</div>
+<div class="space-y-xs">
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    10:00 - 12:00
+                                </div>
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    13:00 - 15:00
+                                </div>
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    16:00 - 18:00
+                                </div>
+<button class="w-full p-sm border-2 border-dashed border-outline-variant rounded-lg text-outline-variant flex justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface">WED</p>
+</div>
+<div class="space-y-xs">
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    09:00 - 13:00
+                                </div>
+<button class="w-full p-sm border-2 border-dashed border-outline-variant rounded-lg text-outline-variant flex justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface">THU</p>
+</div>
+<div class="space-y-xs">
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    11:00 - 14:00
+                                </div>
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    15:00 - 19:00
+                                </div>
+<button class="w-full p-sm border-2 border-dashed border-outline-variant rounded-lg text-outline-variant flex justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Friday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant">
+<p class="font-label-md text-label-md text-on-surface">FRI</p>
+</div>
+<div class="space-y-xs">
+<div class="p-sm bg-primary-container text-on-primary-container rounded-lg font-label-sm text-center">
+                                    09:00 - 12:00
+                                </div>
+<button class="w-full p-sm border-2 border-dashed border-outline-variant rounded-lg text-outline-variant flex justify-center">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Saturday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant bg-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant">SAT</p>
+</div>
+<div class="space-y-xs h-full flex flex-col items-center justify-center border border-dashed border-outline-variant rounded-lg bg-surface-container-low py-md">
+<span class="material-symbols-outlined text-outline-variant mb-xs">event_busy</span>
+<p class="font-label-sm text-label-sm text-outline-variant">Off-day</p>
+</div>
+</div>
+<!-- Sunday -->
+<div class="flex flex-col gap-sm">
+<div class="p-xs text-center border-b-2 border-outline-variant bg-surface-container">
+<p class="font-label-md text-label-md text-on-surface-variant">SUN</p>
+</div>
+<div class="space-y-xs h-full flex flex-col items-center justify-center border border-dashed border-outline-variant rounded-lg bg-surface-container-low py-md">
+<span class="material-symbols-outlined text-outline-variant mb-xs">event_busy</span>
+<p class="font-label-sm text-label-sm text-outline-variant">Off-day</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

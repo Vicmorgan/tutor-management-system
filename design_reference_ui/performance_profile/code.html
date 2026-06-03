@@ -1,0 +1,267 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdbca",
+                        "primary-container": "#10b981",
+                        "inverse-surface": "#213145",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-tertiary-container": "#711419",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-fixed-dim": "#ffb690",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "on-surface-variant": "#3c4a42",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-container": "#fd761a",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#fc7c78",
+                        "tertiary": "#a43a3a",
+                        "surface-tint": "#006c49",
+                        "inverse-primary": "#4edea3",
+                        "primary-fixed": "#6ffbbe",
+                        "on-primary-container": "#00422b",
+                        "surface": "#f8f9ff",
+                        "secondary": "#9d4300",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#002113",
+                        "surface-variant": "#d3e4fe",
+                        "on-surface": "#0b1c30",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#410005",
+                        "primary-fixed-dim": "#4edea3",
+                        "error-container": "#ffdad6",
+                        "outline": "#6c7a71",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-secondary-fixed": "#341100",
+                        "on-background": "#0b1c30",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-container": "#5c2400",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bbcabf",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-dim": "#cbdbf5",
+                        "primary": "#006c49",
+                        "background": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "xs": "0.5rem",
+                        "xl": "3rem",
+                        "margin": "2rem",
+                        "sm": "1rem",
+                        "md": "1.5rem",
+                        "lg": "2rem",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "h1": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar Section -->
+<header class="flex justify-between items-center px-gutter w-full sticky top-0 z-50 bg-surface dark:bg-on-background shadow-sm h-16">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img alt="Tutor profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a female tutor with a warm, encouraging smile. She is set against a clean, softly blurred academic background with books and warm indoor lighting. The image quality is high-resolution, following a professional corporate aesthetic with soft shadows and balanced green-tinted neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu3drR4AHm16NUotZ97-2MV6vJpVv-Y82cLGigZxNwh0Y5cNxECjY2TBgGMf80m3FLBJrE3wPAZfFoijx55XMq0r5MMCrPPO6f17zyVuPe3_JChu3DEMpoEGn0YA07-pQ9rxpqg1w7uBGtQ1ao8mjK1swurxuYI5sk1tVPBZsu5woVv0e2DvPNid9WQTCq4ZJDSeCedHeynaqY03TfxlJi2Ex9vZWsFo8PcNfjyUo8WJlzeCxDXg0KLDsMPdJEYZOR1MIQF5gtLMo">
+</div>
+<h1 class="font-h2 text-h2 font-bold text-primary dark:text-primary-fixed">Eduteach</h1>
+</div>
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed p-xs hover:bg-surface-container transition-colors active:scale-95 duration-200" data-icon="notifications">
+            notifications
+        </button>
+</header>
+<main class="px-gutter pt-md space-y-lg">
+<!-- Profile & Rating Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Rating Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col items-center justify-center space-y-xs relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Tutor Rating</span>
+<div class="flex items-baseline gap-xs">
+<span class="font-h1 text-h1 text-on-surface">4.9</span>
+<span class="material-symbols-outlined text-secondary text-h3" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Top 5% of Educators</p>
+<div class="w-full pt-md flex justify-between gap-sm">
+<div class="text-center flex-1">
+<div class="text-label-md font-label-md text-primary">98%</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant">Satisfaction</div>
+</div>
+<div class="text-center flex-1">
+<div class="text-label-md font-label-md text-primary">124</div>
+<div class="text-[10px] uppercase font-bold text-on-surface-variant">Reviews</div>
+</div>
+</div>
+</div>
+<!-- Profile Edit Quick Actions -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-h3 text-h3 text-on-surface">Profile Identity</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Manage your public presence</p>
+</div>
+<button class="p-xs bg-surface-container rounded-full text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="mt-lg flex items-center gap-md">
+<div class="relative group">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A detailed view of a digital profile interface showing a female tutor's photo. The photo is framed by a subtle emerald green glow and a minimalist circular border. The aesthetic is clean and modern, evoking trust and academic professionalism with high-key lighting and a fresh slate-blue and white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALYxmpsfTxe-U9P_oXrUkKMCudt9O-zm2DNJEr0g-a6RQCW9YBecqkB9NKigTL2GRyKlkpzZK5Hvo9RDuE98zkva_CWUIyEY2GHPBdck8vqi0MYWXut_N79yF927fMb66-voNSAtWH5BPDzQrIGihxj52myTuZGEBSoHkBNX-GaW9o4fTnxb0OhRx9ORg0Dbt3V-36xhFjILQg-HRx4qPGYAmT5gKHPs3GOFbCbWF5OiFf_RkvuEHGwLk9EHFCvomXQHzkioXpavA">
+<div class="absolute inset-0 bg-on-surface/40 rounded-full opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-surface" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Dr. Sarah Jenkins</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Senior Mathematics Tutor</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Attendance Consistency Section -->
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant space-y-md">
+<div class="flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Attendance Consistency</h3>
+<div class="flex items-center gap-xs text-primary">
+<span class="text-label-md font-label-md">Last 30 Days</span>
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+<!-- Simplified Bar Chart Representation -->
+<div class="h-40 flex items-end justify-between gap-sm px-xs">
+<div class="w-full bg-surface-container rounded-t-lg h-[60%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">85%</div>
+</div>
+<div class="w-full bg-surface-container rounded-t-lg h-[85%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">92%</div>
+</div>
+<div class="w-full bg-primary rounded-t-lg h-[100%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">100%</div>
+</div>
+<div class="w-full bg-surface-container rounded-t-lg h-[75%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">88%</div>
+</div>
+<div class="w-full bg-surface-container rounded-t-lg h-[90%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">95%</div>
+</div>
+<div class="w-full bg-surface-container rounded-t-lg h-[65%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">82%</div>
+</div>
+<div class="w-full bg-primary rounded-t-lg h-[95%] hover:bg-primary-container transition-colors relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-surface text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100">98%</div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</section>
+<!-- Availability Management -->
+<section class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant space-y-md mb-8">
+<div class="flex justify-between items-center">
+<h3 class="font-h3 text-h3 text-on-surface">Weekly Availability</h3>
+<button class="text-primary font-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+                    Modify
+                </button>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-label-md text-on-surface">Mon, Wed, Fri</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">09:00 AM - 05:00 PM</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<span class="font-label-md text-on-surface">Tue, Thu</span>
+</div>
+<span class="text-body-sm text-on-surface-variant">10:00 AM - 04:00 PM</span>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-dashed border-outline">
+<div class="flex items-center gap-md text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+<span class="font-label-md">Weekend</span>
+</div>
+<span class="text-body-sm">Unavailable</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Section -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center py-xs px-sm bg-surface dark:bg-on-background shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary transition-transform duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary transition-transform duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-sm text-label-sm">Students</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:text-primary transition-transform duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-sm text-label-sm">Schedule</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-full px-4 py-1 transition-transform duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-sm text-label-sm">Earnings</span>
+</a>
+</nav>
+</body></html>

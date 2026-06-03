@@ -1,0 +1,440 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tutor Management | EduTeach</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#d3e4fe",
+                      "on-secondary-fixed": "#341100",
+                      "on-error-container": "#93000a",
+                      "surface": "#f8f9ff",
+                      "on-secondary-container": "#5c2400",
+                      "outline-variant": "#bbcabf",
+                      "surface-tint": "#006c49",
+                      "primary-fixed": "#6ffbbe",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#ffdbca",
+                      "surface-container": "#e5eeff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdad7",
+                      "on-secondary-fixed-variant": "#783200",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#006c49",
+                      "on-primary-container": "#00422b",
+                      "secondary": "#9d4300",
+                      "surface-bright": "#f8f9ff",
+                      "primary-container": "#10b981",
+                      "secondary-container": "#fd761a",
+                      "outline": "#6c7a71",
+                      "on-background": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#3c4a42",
+                      "on-tertiary-container": "#711419",
+                      "on-tertiary-fixed": "#410005",
+                      "inverse-primary": "#4edea3",
+                      "inverse-surface": "#213145",
+                      "secondary-fixed-dim": "#ffb690",
+                      "primary-fixed-dim": "#4edea3",
+                      "background": "#f8f9ff",
+                      "on-surface": "#0b1c30",
+                      "on-error": "#ffffff",
+                      "tertiary": "#a43a3a",
+                      "tertiary-fixed-dim": "#ffb3af",
+                      "on-primary-fixed-variant": "#005236",
+                      "surface-dim": "#cbdbf5",
+                      "tertiary-container": "#fc7c78",
+                      "on-primary-fixed": "#002113",
+                      "surface-container-high": "#dce9ff",
+                      "surface-container-low": "#eff4ff",
+                      "on-tertiary-fixed-variant": "#842225",
+                      "surface-container-highest": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "gutter": "1.5rem",
+                      "md": "1.5rem",
+                      "sm": "1rem",
+                      "xl": "3rem",
+                      "xs": "0.5rem",
+                      "lg": "2rem",
+                      "margin": "2rem"
+              },
+              "fontFamily": {
+                      "label-sm": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h3": ["Inter"],
+                      "label-md": ["Inter"],
+                      "h1": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "h2": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                      "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 6px -1px rgba(100, 116, 139, 0.1), 0 2px 4px -2px rgba(100, 116, 139, 0.1);
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[280px] bg-surface dark:bg-on-background flex flex-col py-md border-r border-outline-variant dark:border-outline z-50">
+<div class="px-gutter mb-lg flex items-center gap-sm">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+</div>
+<div>
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">EduTeach</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Management Portal</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-md px-md py-3 bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 transition-transform duration-200 translate-x-1 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="supervisor_account" style="font-variation-settings: 'FILL' 1;">supervisor_account</span>
+                Tutors
+            </a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+                Students
+            </a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Schedule
+            </a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Payments
+            </a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Reports
+            </a>
+</nav>
+<div class="mt-auto pt-md space-y-1">
+<button class="w-[calc(100%-32px)] mx-4 mb-lg py-3 px-gutter bg-secondary-container text-on-secondary-container rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Schedule
+            </button>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-md px-md py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low mx-2 my-1 rounded-lg transition-all duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[280px] h-16 bg-surface-container-lowest dark:bg-inverse-surface flex justify-between items-center px-gutter z-40 shadow-sm dark:shadow-none border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-body-sm font-body-sm focus:outline-none focus:border-primary transition-colors" placeholder="Search tutors, subjects, or IDs..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-sm">
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface">Alex Rivera</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Administrator</p>
+</div>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a young administrator in a bright, modern educational setting. The lighting is soft and natural, emphasizing a friendly yet authoritative demeanor. The background is a clean, minimalist office space with subtle educational accents. The color palette is dominated by soft neutrals and professional tones that align with the brand's high-end productivity aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5OG3hCzRJKRBsFGiRuP-iN1-RDic7148Th9w-KGoDXQ8cOthV6Asr-4vjYfN0O7LB0g-LmtJSMmHIqAqhPXeXK2QN4qoB_RjvsXCpauL4Vbp04cmSCXQ2J1AcpHyri4U0rWmJ0ftCOlq39JVrSvVdtksQsPBFIwRb28RYvxuIuqOHzus-pkY-ua1VRwPmjQE0b9ueG0Qh7M8O8UmWGlrLyJIs5wTn6x-A2ryQ-d5BR4IuyOqH7AmLrg7XiPvKQRTxUnLM40aCNmE">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] pt-16 min-h-screen bg-background p-gutter">
+<div class="max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface tracking-tight">Tutor Management</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage and monitor tutor performance and schedules across all departments.</p>
+</div>
+<button class="flex items-center gap-sm bg-primary text-white px-lg py-3 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="person_add" style="font-variation-settings: 'FILL' 1;">person_add</span>
+                    Add Tutor
+                </button>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest p-md rounded-xl custom-shadow border border-outline-variant flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Tutors</p>
+<div class="flex items-baseline gap-sm">
+<span class="font-h2 text-h2 font-bold text-on-surface">42</span>
+<span class="text-primary font-label-sm text-label-sm flex items-center">+4 this month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl custom-shadow border border-outline-variant flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Sessions</p>
+<div class="flex items-baseline gap-sm">
+<span class="font-h2 text-h2 font-bold text-on-surface">128</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">In progress</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl custom-shadow border border-outline-variant flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Avg. Rating</p>
+<div class="flex items-baseline gap-sm">
+<span class="font-h2 text-h2 font-bold text-on-surface">4.8</span>
+<div class="flex text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl custom-shadow border border-outline-variant flex flex-col gap-xs">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pending Approvals</p>
+<div class="flex items-baseline gap-sm">
+<span class="font-h2 text-h2 font-bold text-tertiary">3</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Application queue</span>
+</div>
+</div>
+</div>
+<!-- Table Container -->
+<div class="bg-surface-container-lowest rounded-xl custom-shadow border border-outline-variant overflow-hidden">
+<!-- Filter Bar -->
+<div class="p-md border-b border-outline-variant flex items-center justify-between bg-surface-bright">
+<div class="flex items-center gap-md">
+<div class="flex border border-outline-variant rounded-lg overflow-hidden font-label-md text-label-md">
+<button class="px-md py-2 bg-primary text-white">All</button>
+<button class="px-md py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors border-l border-outline-variant">Active</button>
+<button class="px-md py-2 text-on-surface-variant hover:bg-surface-container-low transition-colors border-l border-outline-variant">On Leave</button>
+</div>
+<button class="flex items-center gap-xs px-md py-2 text-on-surface-variant hover:bg-surface-container-low border border-outline-variant rounded-lg transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                            Filter
+                        </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Showing 42 tutors</p>
+</div>
+<!-- Main Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Tutor Name</th>
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Subjects</th>
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Hourly Rate</th>
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Availability</th>
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Rating</th>
+<th class="px-gutter py-4 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 group">
+<td class="px-gutter py-md">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img alt="Sarah Miller Profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A detailed digital portrait of a female academic professional with glasses and a friendly smile. She is in a clean, modern educational office environment with soft focus books in the background. The lighting is warm and bright, conveying expertise and accessibility. The color palette reflects the corporate-modern style with subtle green accents and high-contrast whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZyfcQ-JzrsblKhwSmwOAkcn7OvLZbtoHbHb7R2HZkEa36zOHU8fxbWjV9626KEUCPjTbjge4M8ZGkHrG4YcGlvoqawvGNwi2jM1lOvvgyju7zjCQmW4_YuegHTTQLwshY24789wEXFlNDEi2UAeVXYDejDIzLMPB3IkmCW8InLDHLDw1-xDsv33BWjC2misJhqrSxLEYlPKmo3rKjo80pnVI2Zm1N3yMWL7lE_-ECBdsQmkxdf5zypMLioCYFPJ3eB9MEIp6Q5iE">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Sarah Miller</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mathematics Specialist</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">Calculus</span>
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">Statistics</span>
+</div>
+</td>
+<td class="px-gutter py-md">
+<span class="font-body-md text-body-md text-on-surface font-semibold">$55.00/hr</span>
+</td>
+<td class="px-gutter py-md">
+<span class="bg-primary-container text-on-primary-container px-sm py-1 rounded-full font-label-sm text-label-sm">Full Time</span>
+</td>
+<td class="px-gutter py-md">
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.9
+                                    </div>
+</td>
+<td class="px-gutter py-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 group">
+<td class="px-gutter py-md">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img alt="James Dong Profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A professional headshot of a male tutor in his 30s with a clean-cut look. He is dressed in a smart-casual shirt, standing in a bright, airy classroom with a blurred whiteboard behind him. The image is captured with high-key lighting, emphasizing a modern, professional, and trustworthy brand image. The colors are crisp, with primary greens and neutral whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfh6GCX1DQKLUv0x8U3OQfg7Kog2C8pgGmv3rnI5pQre96_8zFpT2XY33qVVnJZkxlj5Me8HGbyh_c9LbQ0WJ_oxpDDRQA86XZCS-DPd0z-_kzinsVzQwx01D1oZTWiVw6RMwS-oD8sv2AhblOObgymY4Ks4yt8Ft6GnjkLo6esgODPLhqkkwJNHrXvOKDXb7VfriB5Gu8DwfKPwKNt0U1-Q21hXyxeCcXplL_skdNWipKg2iMjjF4kMPZCqMmGNjh0KjBXB_xrOs">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">James Dong</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Computer Science</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">Python</span>
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">Algorithms</span>
+</div>
+</td>
+<td class="px-gutter py-md">
+<span class="font-body-md text-body-md text-on-surface font-semibold">$65.00/hr</span>
+</td>
+<td class="px-gutter py-md">
+<span class="bg-secondary-container/20 text-on-secondary-container px-sm py-1 rounded-full font-label-sm text-label-sm">Part Time</span>
+</td>
+<td class="px-gutter py-md">
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.7
+                                    </div>
+</td>
+<td class="px-gutter py-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors duration-200 group">
+<td class="px-gutter py-md">
+<div class="flex items-center gap-md">
+<div class="relative">
+<img alt="Elena Aristos Profile" class="w-10 h-10 rounded-full border border-outline-variant" data-alt="A portrait of a mature female tutor with a warm and encouraging expression. She is in a minimalist library setting with soft, ambient lighting. The background features blurred wooden bookshelves and modern furniture. The aesthetic is clean and academic, utilizing the EduTeach primary green for subtle highlights. High-quality digital photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2zERgToSQTc0x49gNeSmYqJc8dooNwOw3Oe0NcpHB1RiZL0axv9zi_izaznBiBBB7r0xvOA7c2Z0P_lJEKUPUF20VR9L1dDZ8-iVrW9iIcWdxg3gXZjKF5vrPmk_spDIWdx6MXC37eQ5Qk1exCV3jPRrheFIzfFD0AeNgCpsCJJO8hLF7rzwtKeXFMVr0gQBmLrMh6aQQY80PYi5Ssc4u5lamKxDTEMIZzfkevaoTU7QakMYa9SfwLFsOPG-t0o348Ms3Etrv248">
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-outline border-2 border-white rounded-full"></span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Elena Aristos</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Linguistics &amp; History</p>
+</div>
+</div>
+</td>
+<td class="px-gutter py-md">
+<div class="flex flex-wrap gap-xs">
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">Ancient Greek</span>
+<span class="bg-primary-container/10 text-primary px-xs py-1 rounded font-label-sm text-label-sm">World History</span>
+</div>
+</td>
+<td class="px-gutter py-md">
+<span class="font-body-md text-body-md text-on-surface font-semibold">$48.00/hr</span>
+</td>
+<td class="px-gutter py-md">
+<span class="bg-surface-variant text-on-surface-variant px-sm py-1 rounded-full font-label-sm text-label-sm">Weekend Only</span>
+</td>
+<td class="px-gutter py-md">
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        5.0
+                                    </div>
+</td>
+<td class="px-gutter py-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-md bg-surface-bright border-t border-outline-variant flex items-center justify-between">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Page 1 of 5</p>
+<div class="flex items-center gap-xs">
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 bg-primary text-white rounded-lg font-label-md text-label-md">1</button>
+<button class="w-10 h-10 hover:bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md transition-colors">2</button>
+<button class="w-10 h-10 hover:bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md transition-colors">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-10 h-10 hover:bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md transition-colors">5</button>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) contextually relevant for Home/Dashboard/Management -->
+<button class="fixed bottom-margin right-margin w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50 md:hidden">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TutorPortal - Earnings &amp; Payments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#d3e4fe",
+                        "on-surface-variant": "#3c4a42",
+                        "inverse-surface": "#213145",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-high": "#dce9ff",
+                        "secondary-fixed": "#ffdbca",
+                        "surface-tint": "#006c49",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-fixed-dim": "#ffb690",
+                        "surface": "#f8f9ff",
+                        "secondary-container": "#fd761a",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-primary-fixed": "#002113",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#410005",
+                        "primary": "#006c49",
+                        "outline": "#6c7a71",
+                        "on-tertiary-container": "#711419",
+                        "primary-fixed-dim": "#4edea3",
+                        "secondary": "#9d4300",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "tertiary-fixed": "#ffdad7",
+                        "outline-variant": "#bbcabf",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#5c2400",
+                        "inverse-primary": "#4edea3",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary": "#a43a3a",
+                        "on-secondary-fixed": "#341100",
+                        "on-error": "#ffffff",
+                        "primary-container": "#10b981",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "primary-fixed": "#6ffbbe",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-fixed-variant": "#005236",
+                        "tertiary-container": "#fc7c78",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-primary-container": "#00422b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface": "#0b1c30"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "2rem",
+                        "gutter": "1.5rem",
+                        "sm": "1rem",
+                        "margin": "2rem",
+                        "md": "1.5rem",
+                        "xs": "0.5rem",
+                        "base": "4px",
+                        "xl": "3rem"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "h3": ["Inter"],
+                        "h2": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[280px] z-50 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline shadow-sm flex flex-col py-md gap-xs">
+<div class="px-md mb-lg">
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed">TutorPortal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Academic Excellence</p>
+</div>
+<nav class="flex-1 px-xs space-y-1">
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<!-- ACTIVE: Earnings -->
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Performance</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-xs py-sm bg-primary text-on-primary rounded-lg font-label-md shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Lesson
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-280px)] h-16 z-40 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm flex items-center justify-between px-gutter">
+<div class="flex items-center gap-md w-1/3">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary rounded-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-sm focus:ring-0" placeholder="Search transactions..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hover:bg-surface-container dark:hover:bg-surface-variant rounded-full p-2 relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary-container rounded-full border-2 border-white"></span>
+</button>
+<button class="hover:bg-surface-container dark:hover:bg-surface-variant rounded-full p-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant ml-xs">
+<img alt="Tutor Profile Image" class="w-full h-full object-cover" data-alt="A professional headshot of a female educator with a warm smile, wearing a professional navy blazer. The background is a blurred high-end academic office with books and soft warm lighting. The aesthetic is clean and modern, consistent with a high-utility corporate SaaS interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs7BLK9JD3RTt0VdPl7gzzworqjADEbUMiFYdfh0jbRuYvjhJzycj63QAiImcxaohPGEA-MKOHrmkN2bBGtqQQ93sskFHxBEp3TA5AWm0-t965N0-zDQoraPQZk5SC0u9dRArCzVYD_62ChyPzdS0aj8ZuYaLzRWqbrHMncHbe3I8JDCtYY7jcgjc4GvFGNSaF4_SAHhPE6UasqeiPn-utyijcizxXYCH2qhZlz_PWqb-_rbj7hPQiAbm3QqaXunbLirlRCspd8d8">
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] pt-24 px-gutter pb-xl min-h-screen">
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-lg">
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center gap-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary"></div>
+<div class="p-xs bg-primary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-primary text-[32px]" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Total Earned</p>
+<h2 class="text-h2 font-h2 text-on-surface">$12,450.00</h2>
+<p class="text-primary-container text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +12% this month
+                    </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center gap-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary-container"></div>
+<div class="p-xs bg-secondary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[32px]" data-icon="pending_actions">pending_actions</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Pending Payout</p>
+<h2 class="text-h2 font-h2 text-on-surface">$1,280.50</h2>
+<p class="text-on-surface-variant text-label-sm">Next payout: Oct 15</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm flex items-center gap-md relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-tertiary"></div>
+<div class="p-xs bg-tertiary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-tertiary text-[32px]" data-icon="schedule">schedule</span>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-wider">Hours Taught</p>
+<h2 class="text-h2 font-h2 text-on-surface">456 hrs</h2>
+<p class="text-on-surface-variant text-label-sm">Total historical hours</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Central Chart Section -->
+<div class="flex-1 space-y-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<div>
+<h3 class="text-h3 font-h3">Monthly Earnings</h3>
+<p class="text-on-surface-variant text-body-sm">Track your revenue growth over time</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg">
+<button class="px-md py-1 text-label-sm rounded-md bg-white shadow-sm text-on-surface">Last 6 Months</button>
+<button class="px-md py-1 text-label-sm rounded-md text-on-surface-variant hover:text-on-surface transition-colors">Yearly</button>
+</div>
+</div>
+<!-- Chart Simulation -->
+<div class="h-[320px] w-full relative flex items-end gap-xs px-xs">
+<div class="absolute inset-0 flex flex-col justify-between py-xs pointer-events-none">
+<div class="border-b border-outline-variant w-full h-px opacity-50"></div>
+<div class="border-b border-outline-variant w-full h-px opacity-50"></div>
+<div class="border-b border-outline-variant w-full h-px opacity-50"></div>
+<div class="border-b border-outline-variant w-full h-px opacity-50"></div>
+<div class="border-b border-outline-variant w-full h-px opacity-50"></div>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg transition-all duration-300 group-hover:bg-primary/20 h-[40%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="text-label-sm mt-2 text-on-surface-variant">May</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg transition-all duration-300 group-hover:bg-primary/20 h-[55%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="text-label-sm mt-2 text-on-surface-variant">Jun</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg transition-all duration-300 group-hover:bg-primary/20 h-[70%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="text-label-sm mt-2 text-on-surface-variant">Jul</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg transition-all duration-300 group-hover:bg-primary/20 h-[60%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="text-label-sm mt-2 text-on-surface-variant">Aug</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary/10 rounded-t-lg transition-all duration-300 group-hover:bg-primary/20 h-[85%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary rounded-full"></div>
+</div>
+<span class="text-label-sm mt-2 text-on-surface-variant">Sep</span>
+</div>
+<div class="flex-1 flex flex-col items-center group">
+<div class="w-full bg-primary-container rounded-t-lg h-[95%] relative">
+<div class="absolute -top-1 left-0 right-0 h-1 bg-primary-fixed-dim rounded-full"></div>
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white px-xs py-0.5 rounded text-[10px] whitespace-nowrap shadow-xl">
+                                    Current: $2,840
+                                </div>
+</div>
+<span class="text-label-sm mt-2 font-bold text-primary">Oct</span>
+</div>
+</div>
+</div>
+<!-- Payment History Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="text-h3 font-h3">Payment History</h3>
+<button class="text-primary font-label-md hover:underline">Download CSV</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Date</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Reference</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Hours</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Rate</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Amount</th>
+<th class="px-md py-sm font-label-sm text-on-surface-variant uppercase">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-body-sm">Oct 12, 2023</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">INV-8902</td>
+<td class="px-md py-md font-body-sm">12.5 hrs</td>
+<td class="px-md py-md font-body-sm">$45.00/hr</td>
+<td class="px-md py-md font-label-md">$562.50</td>
+<td class="px-md py-md">
+<span class="px-xs py-0.5 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm">Paid</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-body-sm">Oct 08, 2023</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">INV-8894</td>
+<td class="px-md py-md font-body-sm">8.0 hrs</td>
+<td class="px-md py-md font-body-sm">$50.00/hr</td>
+<td class="px-md py-md font-label-md">$400.00</td>
+<td class="px-md py-md">
+<span class="px-xs py-0.5 rounded-full bg-secondary-container/20 text-on-secondary-container font-label-sm">Pending</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-body-sm">Oct 05, 2023</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">INV-8881</td>
+<td class="px-md py-md font-body-sm">15.0 hrs</td>
+<td class="px-md py-md font-body-sm">$45.00/hr</td>
+<td class="px-md py-md font-label-md">$675.00</td>
+<td class="px-md py-md">
+<span class="px-xs py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm">Processing</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-md py-md font-body-sm">Sep 28, 2023</td>
+<td class="px-md py-md font-body-sm text-on-surface-variant">INV-8850</td>
+<td class="px-md py-md font-body-sm">10.0 hrs</td>
+<td class="px-md py-md font-body-sm">$45.00/hr</td>
+<td class="px-md py-md font-label-md">$450.00</td>
+<td class="px-md py-md">
+<span class="px-xs py-0.5 rounded-full bg-primary-container/20 text-on-primary-container font-label-sm">Paid</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-md bg-surface-container-low flex items-center justify-between">
+<p class="text-body-sm text-on-surface-variant">Showing 1-10 of 42 transactions</p>
+<div class="flex gap-xs">
+<button class="p-1 rounded border border-outline-variant hover:bg-white"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1 rounded border border-outline-variant hover:bg-white"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar -->
+<div class="w-full lg:w-[320px] space-y-gutter">
+<!-- Payout Method Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<h4 class="font-label-md">Payout Method</h4>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer" data-icon="edit">edit</span>
+</div>
+<div class="flex items-center gap-md p-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="w-10 h-10 rounded bg-white border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Chase Checking</p>
+<p class="text-label-sm text-on-surface-variant">•••• 4821</p>
+</div>
+</div>
+<button class="w-full mt-md py-xs text-label-sm font-bold text-primary border border-primary rounded-lg hover:bg-primary-container/10 transition-colors">
+                        Add New Method
+                    </button>
+</div>
+<!-- Revenue Breakdown Card -->
+<div class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm">
+<h4 class="font-label-md mb-md">Revenue Breakdown</h4>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between text-label-sm mb-1">
+<span class="text-on-surface-variant">Private Lessons</span>
+<span class="font-bold">$8,960 (72%)</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[72%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-label-sm mb-1">
+<span class="text-on-surface-variant">Group Sessions</span>
+<span class="font-bold">$3,490 (28%)</span>
+</div>
+<div class="w-full bg-surface-container-low h-2 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[28%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-lg pt-md border-t border-outline-variant">
+<div class="flex items-center justify-between mb-xs">
+<span class="text-body-sm text-on-surface-variant">Platform Fees (5%)</span>
+<span class="text-body-sm">-$622.50</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm text-on-surface-variant">Processing Fees</span>
+<span class="text-body-sm">-$124.00</span>
+</div>
+</div>
+</div>
+<!-- Financial Tip Card (Asymmetric Layout element) -->
+<div class="bg-primary text-on-primary p-md rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+<h4 class="font-label-md mb-xs">Tax Optimization</h4>
+<p class="text-body-sm opacity-90 mb-md">Did you know you can deduct home office expenses? Consult with our partner CPAs for a 15% discount.</p>
+<a class="inline-flex items-center gap-1 font-label-md text-primary-fixed underline" href="#">
+                        Learn more <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

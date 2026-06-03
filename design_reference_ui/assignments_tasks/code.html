@@ -1,0 +1,374 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#00422b",
+                    "on-secondary-fixed": "#341100",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-variant": "#d3e4fe",
+                    "on-background": "#0b1c30",
+                    "inverse-primary": "#4edea3",
+                    "on-primary-fixed": "#002113",
+                    "error-container": "#ffdad6",
+                    "outline": "#6c7a71",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed": "#ffdbca",
+                    "on-surface-variant": "#3c4a42",
+                    "on-error": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary": "#006c49",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary-fixed": "#410005",
+                    "secondary-fixed-dim": "#ffb690",
+                    "secondary": "#9d4300",
+                    "inverse-surface": "#213145",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-tint": "#006c49",
+                    "on-surface": "#0b1c30",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#eff4ff",
+                    "on-secondary-fixed-variant": "#783200",
+                    "primary-fixed": "#6ffbbe",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "primary-container": "#10b981",
+                    "on-secondary-container": "#5c2400",
+                    "tertiary": "#a43a3a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#d3e4fe",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-container": "#711419",
+                    "surface-dim": "#cbdbf5",
+                    "tertiary-container": "#fc7c78",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#fd761a",
+                    "outline-variant": "#bbcabf",
+                    "surface-container-high": "#dce9ff",
+                    "on-tertiary-fixed-variant": "#842225"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "1.5rem",
+                    "xl": "3rem",
+                    "gutter": "1.5rem",
+                    "xs": "0.5rem",
+                    "margin": "2rem",
+                    "lg": "2rem",
+                    "sm": "1rem",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "h1": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .assignment-card {
+            box-shadow: 0 4px 6px -1px rgba(100, 116, 139, 0.1), 0 2px 4px -2px rgba(100, 116, 139, 0.1);
+            border: 1px solid #E2E8F0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] z-50 bg-surface-container-low dark:bg-on-background shadow-sm flex flex-col py-lg px-md">
+<div class="mb-xl">
+<h1 class="font-h3 text-h3 font-bold text-primary dark:text-primary-fixed-dim">EduTeach</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Student Portal</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Tutors</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-surface-container-high text-primary dark:text-primary-fixed-dim font-bold border-r-4 border-primary" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-label-md text-label-md">Assignments</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto space-y-xs border-t border-outline-variant pt-lg">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<button class="w-full flex items-center gap-md px-md py-sm rounded-lg text-error hover:bg-error-container/20 transition-colors duration-200">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-280px)] z-40 bg-surface dark:bg-on-background border-b border-outline-variant px-lg py-sm h-16 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-md flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary rounded-lg overflow-hidden transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none pl-10 pr-4 py-2 font-body-sm text-body-sm focus:ring-0 outline-none" placeholder="Search tasks or files..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="flex items-center gap-sm cursor-pointer group">
+<div class="text-right">
+<p class="font-label-md text-label-md text-on-surface">Alex Johnson</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mathematics Major</p>
+</div>
+<img alt="Student Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu8yZbIFkivrj6aZzvuEXl_8Ok47MzRUPVhs3yAVUMpD9KvMrMRqOyylC0zsUII3NHE8oikJjEcPF6CpdxFqItsW46HwAsW8kNXi5NoH5BQnO4fsn_HnzViauPjgWqgmKLH1lcRSotFcMVAJ3c2wg2Dc7_SVXIkKwt2OHCicIPEEXe2XoljyH5F9Q1eddlO2WN9iNQq9SFeNJ9FfV5wmAyrOHSs_p-6KcZXYesWtnfkPYdAvzjUzAdjoGzAQeCErqELcZAkxR-cNI">
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="mt-16 p-lg max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="flex items-end justify-between mb-xl">
+<div>
+<h2 class="font-h1 text-h1 text-on-surface mb-xs">Assignments &amp; Tasks</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Track your academic progress and manage upcoming deadlines.</p>
+</div>
+<div class="flex gap-sm">
+<button class="flex items-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                        Filter
+                    </button>
+<button class="flex items-center gap-xs px-md py-sm bg-primary text-on-primary rounded-lg font-label-md text-label-md shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                        New Task
+                    </button>
+</div>
+</div>
+<!-- Bento Layout Content -->
+<div class="bento-grid">
+<!-- Main Assignments List -->
+<div class="col-span-8 space-y-md">
+<div class="bg-surface-container-lowest rounded-xl p-lg assignment-card">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-h3 text-h3 text-on-surface">Upcoming Submissions</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 assignments due this week</span>
+</div>
+<!-- Assignment Items -->
+<div class="space-y-sm">
+<!-- Urgent Assignment -->
+<div class="flex items-center justify-between p-md bg-secondary-container/10 border-l-4 border-secondary rounded-lg hover:bg-secondary-container/20 transition-all cursor-pointer">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">functions</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Advanced Calculus: Problem Set 4</p>
+<p class="font-body-sm text-body-sm text-secondary font-bold">Due: Today, 11:59 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<span class="px-sm py-xs bg-secondary-fixed text-on-secondary-fixed rounded font-label-sm text-label-sm uppercase tracking-wide">Pending</span>
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                                        Upload
+                                    </button>
+</div>
+</div>
+<!-- Regular Assignment 1 -->
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg hover:bg-surface-container-high transition-all border border-transparent hover:border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Modern Literature Essay</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due: Oct 24, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<span class="px-sm py-xs bg-surface-container-highest text-on-surface-variant rounded font-label-sm text-label-sm uppercase tracking-wide">Submitted</span>
+<button class="text-primary font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                                        View
+                                    </button>
+</div>
+</div>
+<!-- Regular Assignment 2 -->
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg hover:bg-surface-container-high transition-all border border-transparent hover:border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Organic Chemistry Lab Report</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Due: Oct 27, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<span class="px-sm py-xs bg-primary-container text-on-primary-container rounded font-label-sm text-label-sm uppercase tracking-wide">Reviewed</span>
+<div class="text-right">
+<p class="font-label-md text-label-md text-primary font-bold">Grade: 94%</p>
+</div>
+</div>
+</div>
+<!-- Urgent Assignment 2 -->
+<div class="flex items-center justify-between p-md bg-secondary-container/5 border-l-4 border-secondary/50 rounded-lg hover:bg-secondary-container/10 transition-all">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-outline-variant flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined">history_edu</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">World History: Industrialization Paper</p>
+<p class="font-body-sm text-body-sm text-secondary">Due: Tomorrow, 9:00 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<span class="px-sm py-xs bg-secondary-fixed text-on-secondary-fixed rounded font-label-sm text-label-sm uppercase tracking-wide">Pending</span>
+<button class="bg-primary text-on-primary px-md py-xs rounded-lg font-label-md text-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">upload</span>
+                                        Upload
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Resources & Materials Sidebar -->
+<div class="col-span-4 space-y-md">
+<!-- Progress Card -->
+<div class="bg-primary-container/10 rounded-xl p-lg border border-primary-container/20">
+<div class="flex items-center justify-between mb-md">
+<h4 class="font-label-md text-label-md text-on-primary-container uppercase tracking-wider">Overall Completion</h4>
+<span class="text-h3 font-bold text-primary">78%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-sm">
+<div class="bg-primary h-2 rounded-full" style="width: 78%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container/80">You've completed 12 out of 15 tasks this month. Keep it up!</p>
+</div>
+<!-- Learning Materials -->
+<div class="bg-surface-container-lowest rounded-xl p-lg assignment-card">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-label-md text-label-md text-on-surface">Learning Materials</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All</button>
+</div>
+<div class="space-y-md">
+<div class="flex items-start gap-md group cursor-pointer">
+<div class="w-10 h-10 rounded bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-1 border-b border-outline-variant pb-xs group-hover:border-primary transition-all">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Calculus_Formula_Sheet.pdf</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">2.4 MB • Mathematics</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</div>
+<div class="flex items-start gap-md group cursor-pointer">
+<div class="w-10 h-10 rounded bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1 border-b border-outline-variant pb-xs group-hover:border-primary transition-all">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Lit_Review_Guidelines.docx</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">1.1 MB • Literature</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</div>
+<div class="flex items-start gap-md group cursor-pointer">
+<div class="w-10 h-10 rounded bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+<span class="material-symbols-outlined">table_chart</span>
+</div>
+<div class="flex-1 border-b border-outline-variant pb-xs group-hover:border-primary transition-all">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Periodic_Table_Enhanced.xlsx</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">450 KB • Chemistry</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</div>
+<div class="flex items-start gap-md group cursor-pointer">
+<div class="w-10 h-10 rounded bg-orange-100 flex items-center justify-center text-orange-600 shrink-0">
+<span class="material-symbols-outlined">slideshow</span>
+</div>
+<div class="flex-1 border-b border-outline-variant pb-xs group-hover:border-primary transition-all">
+<p class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Industrial_Rev_Lecture_04.pptx</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">15.8 MB • History</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</div>
+</div>
+</div>
+<!-- Recommended Resources Image Card -->
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene student study space with a modern laptop showing educational software, a green desk plant, and soft morning light streaming through a window. The aesthetic is clean, corporate, and minimalist, echoing the EduTeach platform's green and white brand colors. The atmosphere is focused and professional, promoting academic productivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0WktHFCM0pZBIjPIKeQAZ7qd9d8zLnnqFkX0BA965ulpJxdHfsdLM9Osnh3WxX2JWpp92OVjdnnK789cXVjyd1cYfzTG9PDbmWCBvYvEwuO1bb0envMsoiutq8VIiwkSp7up6oevMDwRXk8C_To9CSul6HrBXRdc2FR7PVdlRGyEXQyjRqeGhzKbmuzrPZ4rE_VW_yq2UXhKTQow4wFLHGC_GkPVyZMuSLMknfl1Mm-QY-TX3u91JnQtUMqWX6o8fjVQavsuoETE">
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 to-transparent p-lg flex flex-col justify-end">
+<h5 class="font-label-md text-label-md text-white">Academic Database Access</h5>
+<p class="font-label-sm text-label-sm text-white/80">Explore thousands of journals through our portal.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for Quick Support -->
+<button class="fixed bottom-lg right-lg w-14 h-14 bg-secondary text-on-secondary rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-[28px]">support_agent</span>
+</button>
+</body></html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d3e4fe",
+                    "on-surface-variant": "#3c4a42",
+                    "inverse-surface": "#213145",
+                    "surface-variant": "#d3e4fe",
+                    "surface-container-high": "#dce9ff",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-tint": "#006c49",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-fixed-dim": "#ffb690",
+                    "surface": "#f8f9ff",
+                    "secondary-container": "#fd761a",
+                    "on-secondary-fixed-variant": "#783200",
+                    "on-primary-fixed": "#002113",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#410005",
+                    "primary": "#006c49",
+                    "outline": "#6c7a71",
+                    "on-tertiary-container": "#711419",
+                    "primary-fixed-dim": "#4edea3",
+                    "secondary": "#9d4300",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#0b1c30",
+                    "tertiary-fixed": "#ffdad7",
+                    "outline-variant": "#bbcabf",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#5c2400",
+                    "inverse-primary": "#4edea3",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary": "#a43a3a",
+                    "on-secondary-fixed": "#341100",
+                    "on-error": "#ffffff",
+                    "primary-container": "#10b981",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "primary-fixed": "#6ffbbe",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "error-container": "#ffdad6",
+                    "surface-dim": "#cbdbf5",
+                    "on-primary-fixed-variant": "#005236",
+                    "tertiary-container": "#fc7c78",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "on-primary-container": "#00422b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-surface": "#0b1c30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "2rem",
+                    "gutter": "1.5rem",
+                    "sm": "1rem",
+                    "margin": "2rem",
+                    "md": "1.5rem",
+                    "xs": "0.5rem",
+                    "base": "4px",
+                    "xl": "3rem"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "h2": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h1": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .inner-glow {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Sidebar Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-[280px] z-50 bg-surface-container-lowest border-r border-outline-variant shadow-sm flex flex-col py-md gap-xs">
+<div class="px-md mb-lg">
+<h1 class="font-h3 text-h3 font-bold text-primary">TutorPortal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Academic Excellence</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg mx-2 my-1 px-md py-sm transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg mx-2 my-1 px-md py-sm transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Students</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg mx-2 my-1 px-md py-sm transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-md text-label-md">Schedule</span>
+</a>
+<a class="flex items-center gap-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg mx-2 my-1 px-md py-sm transition-colors duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+<a class="flex items-center gap-sm bg-primary-container text-on-primary-container font-bold rounded-lg mx-2 my-1 px-md py-sm transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-md text-label-md">Performance</span>
+</a>
+</nav>
+<div class="px-md mt-auto pt-md">
+<button class="w-full bg-primary text-on-primary font-label-md py-sm rounded-lg inner-glow transition-transform active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">add</span>
+                New Lesson
+            </button>
+<div class="flex items-center gap-sm mt-lg p-sm rounded-xl bg-surface-container-low border border-outline-variant">
+<img alt="Tutor Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of an experienced male academic tutor in his early 40s wearing a charcoal blazer. The lighting is soft and studio-quality against a clean, light-colored background. His expression is friendly and confident, embodying the values of academic excellence and mentorship. The overall aesthetic is professional, corporate, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ-j_TRtFMryyD6CbjNAVBtweqPt7-w6eaNJLPV0_eI4tHwR5xQHmK3WHEST2CBAXyrRqLiZgUoXx-wpQx3JPFs8PF0UaFDg_Q1ipDX3McJLFVysDk0PvQ-lsqJUx-kUHqLrPD6weZrM7LWiqUUIIyDPKHoRXafhWLF-Q_S_NiooIIMuRehCgPR5Z8rDblyLdSkaIuYECqhQsCt__wENipcvUfo9PuucrTWtCp_8X3J8UFzLpKgV1_Qf8uZpARB9IOk-cllKmPyj8">
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md truncate">Dr. Julian Sterling</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Mathematics Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-280px)] h-16 z-40 bg-surface-container-lowest border-b border-outline-variant shadow-sm flex items-center justify-between px-gutter">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary rounded-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container border-none rounded-full font-body-sm text-body-sm focus:outline-none placeholder:text-on-surface-variant" placeholder="Search student records..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hover:bg-surface-container rounded-full p-2 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-surface-container rounded-full p-2 text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-[1px] h-6 bg-outline-variant mx-xs"></div>
+<img alt="Tutor Profile Image" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="Close up profile photo of a mature male tutor with a neat beard and professional attire. Soft natural light highlights the approachable yet serious demeanor required for educational consulting. The high-resolution image maintains the corporate, modern, and high-utility aesthetic of the overall dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCacZwvGe-lAjyml9U8L9LnQh6AqnmAfTbyUKFE5oMGY9OhF7wVVBldBnSdE8wtAFDpYOpGUiTZysJ5wN8urMNWun2fTc2ExHEaea6mGxUDCI-Imd8REa_F-Mun1xCpzZMbD5lSdchowgtBEx4JfsbmZMtSLzKYfcmNnSjix8iqINU5PABmIi3CvqYGaAQN-_GMTXxTjMPZMsFtddgeMELcN158yf5uA0iKf9C6-sWuUYY79M5oRfBGfZHq_4lHFjgFD_vswdwsJlc">
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] pt-16 min-h-screen p-gutter bg-background">
+<div class="max-w-[1440px] mx-auto">
+<header class="mb-lg">
+<h2 class="font-h1 text-h1 text-on-surface">Performance &amp; Profile</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your professional identity and track academic success metrics.</p>
+</header>
+<!-- Dual Column Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Performance Analytics -->
+<div class="xl:col-span-7 space-y-lg">
+<!-- Performance Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant border-t-4 border-t-primary">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Tutor Rating</p>
+<div class="flex items-end gap-xs">
+<span class="font-h2 text-h2 text-primary">4.9</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pb-base">/ 5.0</span>
+</div>
+<div class="flex gap-1 mt-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant border-t-4 border-t-primary">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Student Satisfaction</p>
+<div class="flex items-end gap-xs">
+<span class="font-h2 text-h2 text-primary">98%</span>
+</div>
+<p class="font-label-sm text-label-sm text-primary mt-xs flex items-center">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                +2% from last month
+                            </p>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm border border-outline-variant border-t-4 border-t-primary">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-xs">Retention</p>
+<div class="flex items-end gap-xs">
+<span class="font-h2 text-h2 text-primary">84%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 mt-md overflow-hidden">
+<div class="bg-primary h-full w-[84%]"></div>
+</div>
+</div>
+</div>
+<!-- Attendance Consistency Chart -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-label-md text-label-md">Attendance Consistency</h3>
+<select class="bg-transparent border-none font-label-sm text-label-sm text-on-surface-variant focus:ring-0">
+<option>Last 6 Months</option>
+<option>Last Year</option>
+</select>
+</div>
+<div class="flex items-end justify-between h-48 gap-xs">
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 hover:bg-primary-container rounded-t-lg transition-all" style="height: 90%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Sep</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 hover:bg-primary-container rounded-t-lg transition-all" style="height: 85%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Oct</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 hover:bg-primary-container rounded-t-lg transition-all" style="height: 95%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Nov</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all" style="height: 100%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Dec</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 hover:bg-primary-container rounded-t-lg transition-all" style="height: 80%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Jan</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full bg-primary-container/20 hover:bg-primary-container rounded-t-lg transition-all" style="height: 88%;"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-sm">Feb</span>
+</div>
+</div>
+</div>
+<!-- Recent Student Feedback -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<h3 class="font-label-md text-label-md mb-md">Recent Student Feedback</h3>
+<div class="space-y-sm">
+<!-- Feedback Item -->
+<div class="p-md rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-xs">EL</div>
+<div>
+<p class="font-label-md text-label-md">Emma L.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Advanced Calculus</p>
+</div>
+</div>
+<div class="flex">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"Dr. Sterling explains complex concepts with such ease. My grades improved significantly in just three sessions!"</p>
+</div>
+<!-- Feedback Item -->
+<div class="p-md rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-xs">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs">MK</div>
+<div>
+<p class="font-label-md text-label-md">Marcus K.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Linear Algebra</p>
+</div>
+</div>
+<div class="flex">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-[16px]">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">"Very patient and provides excellent practice materials. Highly recommended for exam prep."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Profile Identity & Details -->
+<div class="xl:col-span-5 space-y-lg">
+<!-- Profile Identity Card -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant text-center overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-32 bg-primary/10"></div>
+<div class="relative z-10 pt-8">
+<img alt="Dr. Julian Sterling" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container-lowest mx-auto shadow-md" data-alt="Close up high-resolution profile portrait of Dr. Julian Sterling, a distinguished mathematics tutor. He is wearing a modern navy blue suit with a white shirt, projecting an image of academic authority and approachability. The background is a blurred university library setting with soft mahogany tones, reinforcing the brand's focus on academic rigor and personal growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA57LVVUg5tL88q2jq9A8uTzYwQAn7g3tZ___02CiaAbkH3OG-KeYMV65phUCCLsN4TSemGN7Hgtt2Oi3F5cbqgl3leUfwsdE8T3odyOWFp_EycIlABHZRjdNitJ-RdddS7MvBrc5dIxL7XlJZygkFDgz8gDnbR4rjOauLhXsUiziz3SMZJ8QK3TLtEQskMDkQipH_tVNRlYJCE7eJSTjJjdHfpKs_bdiI8erOzNZHmz26IQ9kDA6N05a-4VY_hl94gD7h3Q17jN74">
+<h3 class="font-h2 text-h2 mt-md">Dr. Julian Sterling</h3>
+<p class="font-label-md text-label-md text-primary mb-md">PhD in Applied Mathematics • Senior Tutor</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto mb-lg">Dedicated educator with 12+ years of experience in higher mathematics. Passionate about making complex equations accessible and fostering academic confidence in every student.</p>
+<button class="bg-secondary text-on-secondary font-label-md py-sm px-xl rounded-lg inner-glow transition-transform active:scale-95 flex items-center justify-center gap-xs mx-auto">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                                Edit Profile
+                            </button>
+</div>
+</div>
+<!-- Weekly Availability -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md">Weekly Availability</h3>
+<span class="material-symbols-outlined text-primary cursor-pointer">event_note</span>
+</div>
+<div class="space-y-xs">
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md w-12 text-on-surface-variant">Mon</span>
+<span class="font-body-sm text-body-sm px-md py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20">09:00 AM - 05:00 PM</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md w-12 text-on-surface-variant">Tue</span>
+<span class="font-body-sm text-body-sm px-md py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20">09:00 AM - 05:00 PM</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md w-12 text-on-surface-variant">Wed</span>
+<span class="font-body-sm text-body-sm px-md py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20">10:00 AM - 06:00 PM</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md w-12 text-on-surface-variant text-on-surface-variant/40">Thu</span>
+<span class="font-body-sm text-body-sm px-md py-1 rounded-full bg-surface-container text-on-surface-variant/40">Out of Office</span>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-label-md text-label-md w-12 text-on-surface-variant">Fri</span>
+<span class="font-body-sm text-body-sm px-md py-1 rounded-full bg-primary-container/10 text-primary border border-primary/20">09:00 AM - 03:00 PM</span>
+</div>
+</div>
+</div>
+<!-- Top Achievements -->
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-sm border border-outline-variant">
+<h3 class="font-label-md text-label-md mb-md">Top Achievements</h3>
+<div class="flex flex-wrap gap-sm">
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-sm text-label-sm">500+ Hours Taught</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm">Top Rated 2023</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-sm text-label-sm">STEM Excellence</span>
+</div>
+<div class="flex items-center gap-xs px-md py-sm bg-surface-container-low rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm">Curriculum Creator</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
