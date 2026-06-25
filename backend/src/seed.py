@@ -8,8 +8,8 @@ load_dotenv()
 
 from sqlalchemy.orm import Session
 from src.database import SessionLocal, engine, Base
-from src.models import User, Course, Enrollment, Session as ClassSession, Attendance, Assignment, Payment
-from src.models import UserRole, PaymentStatus, EnrollmentStatus, AttendanceStatus
+from src.models import User, Tutor, Student, TutorRequest, Application, Assignment, Schedule, Notification
+from src.models import UserRole, RequestStatus, ApplicationStatus, TutorStatus, StudentStatus
 from src.auth import get_password_hash
 import datetime
 
@@ -26,66 +26,50 @@ def seed_database():
             role=UserRole.ADMIN
         )
         db.add(admin)
+        db.commit()
+        db.refresh(admin)
 
     # 2. Create Tutor
-    tutor = db.query(User).filter_by(email="tutor@eduteach.com").first()
-    if not tutor:
-        tutor = User(
+    tutor_user = db.query(User).filter_by(email="tutor@eduteach.com").first()
+    if not tutor_user:
+        tutor_user = User(
             email="tutor@eduteach.com",
             password_hash=get_password_hash("Tutor1234!"),
             full_name="Prof. Sarah Mitchell",
             role=UserRole.TUTOR
         )
-        db.add(tutor)
+        db.add(tutor_user)
+        db.commit()
+        db.refresh(tutor_user)
+
+        tutor_profile = Tutor(user_id=tutor_user.id, rating=4.9, status=TutorStatus.ACTIVE)
+        db.add(tutor_profile)
+        db.commit()
+        db.refresh(tutor_profile)
+    else:
+        tutor_profile = tutor_user.tutor_profile
 
     # 3. Create Student
-    student = db.query(User).filter_by(email="student@eduteach.com").first()
-    if not student:
-        student = User(
+    student_user = db.query(User).filter_by(email="student@eduteach.com").first()
+    if not student_user:
+        student_user = User(
             email="student@eduteach.com",
             password_hash=get_password_hash("Student1234!"),
             full_name="Alex Johnson",
             role=UserRole.STUDENT
         )
-        db.add(student)
-        
-    db.commit()
-
-    print("Checking for existing courses...")
-    # 4. Create Course
-    course = db.query(Course).filter_by(title="Advanced Mathematics").first()
-    if not course:
-        print("Creating course...")
-        course = Course(
-            title="Advanced Mathematics",
-            description="High school level advanced math covering Calculus and Trigonometry.",
-            price=299.99,
-            department="Mathematics",
-            tutor_id=tutor.id
-        )
-        db.add(course)
+        db.add(student_user)
         db.commit()
+        db.refresh(student_user)
 
-    # 5. Create Enrollment
-    enrollment = db.query(Enrollment).filter_by(student_id=student.id, course_id=course.id).first()
-    if not enrollment:
-        enrollment = Enrollment(
-            student_id=student.id,
-            course_id=course.id,
-            status=EnrollmentStatus.ACTIVE
-        )
-        db.add(enrollment)
-        
-        payment = Payment(
-            student_id=student.id,
-            course_id=course.id,
-            amount=299.99,
-            status=PaymentStatus.PAID,
-            due_date=datetime.datetime.now(),
-            paid_at=datetime.datetime.now()
-        )
-        db.add(payment)
+        student_profile = Student(user_id=student_user.id, parent_name="Mr. Johnson", parent_phone="+1234567890", status=StudentStatus.ACTIVE)
+        db.add(student_profile)
         db.commit()
+        db.refresh(student_profile)
+    else:
+        student_profile = student_user.student_profile
+
+
 
     print("Seed data successfully injected!")
     db.close()

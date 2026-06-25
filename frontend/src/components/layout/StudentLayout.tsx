@@ -15,11 +15,9 @@ export const StudentLayout = ({ children }: StudentLayoutProps) => {
   const { user } = useAuth();
   
   const studentNavItems: NavItem[] = [
-    { label: 'My Learning', icon: 'dashboard', href: '/student', isActive: pathname === '/student' },
-    { label: 'My Schedule', icon: 'calendar_today', href: '/student/schedule', isActive: pathname === '/student/schedule' },
-    { label: 'Courses', icon: 'book', href: '/student/courses', isActive: pathname === '/student/courses' },
-    { label: 'Assignments', icon: 'assignment', href: '/student/assignments', isActive: pathname === '/student/assignments' },
-    { label: 'Payments', icon: 'payments', href: '/student/payments', isActive: pathname === '/student/payments' },
+    { label: 'Dashboard', icon: 'dashboard', href: '/student', isActive: pathname === '/student' },
+    { label: 'Schedule', icon: 'calendar_today', href: '/student/schedule', isActive: pathname === '/student/schedule' },
+    { label: 'Notifications', icon: 'notifications', href: '/student/notifications', isActive: pathname === '/student/notifications' },
   ];
 
   return (
@@ -29,9 +27,9 @@ export const StudentLayout = ({ children }: StudentLayoutProps) => {
         subtitle="Student Portal" 
         navItems={studentNavItems} 
         primaryAction={{
-          label: 'Join Next Class',
-          icon: 'login',
-          onClick: () => console.log('Join Next Class clicked')
+          label: 'View Schedule',
+          icon: 'calendar_today',
+          onClick: () => window.location.href = '/student/schedule'
         }}
       />
       <div className="ml-[280px] flex-1 flex flex-col min-w-0">

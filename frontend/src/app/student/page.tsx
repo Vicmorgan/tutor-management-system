@@ -1,167 +1,92 @@
 'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { useRouter } from 'next/navigation';
-import { PaymentModal } from '../../components/payments/PaymentModal';
+import { useMyAssignments, useMyNotifications } from '@/hooks/useApi';
+import Link from 'next/link';
 
 export default function StudentDashboard() {
   const { user } = useAuth();
-  const router = useRouter();
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [isPaid, setIsPaid] = useState(false);
+  const { data: assignments } = useMyAssignments();
+  const { data: notifications } = useMyNotifications();
+
+  const unreadNotifications = notifications?.filter((n: any) => !n.is_read).length || 0;
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-end">
-        <div>
-          <h1 className="text-h2 font-bold text-on-surface">Welcome back, {user?.full_name.split(' ')[0]}</h1>
-          <p className="text-body-md text-on-surface-variant">Here is your learning progress for this week.</p>
-        </div>
+      <div>
+        <h1 className="text-h2 font-bold text-on-surface">Welcome back, {user?.full_name.split(' ')[0]}</h1>
+        <p className="text-body-md text-on-surface-variant">Here is an overview of your tutoring sessions.</p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        {/* Gamified Progress Tracker */}
-        <div className="bg-primary p-8 rounded-3xl text-on-primary flex flex-col justify-center items-center text-center shadow-lg relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-primary-container p-8 rounded-3xl relative overflow-hidden group hover:shadow-lg transition-all">
           <div className="relative z-10">
-            <div className="w-24 h-24 rounded-full border-4 border-on-primary/30 flex items-center justify-center mx-auto mb-4">
-              <span className="material-symbols-outlined text-[48px] text-primary-fixed">military_tech</span>
-            </div>
-            <h2 className="text-h2 font-bold">Top 5%</h2>
-            <p className="text-body-lg opacity-90">Student Rank</p>
-            <div className="mt-6 flex items-center justify-center gap-6">
-              <div>
-                <p className="text-h3 font-bold">24</p>
-                <p className="text-label-sm opacity-80">Classes</p>
-              </div>
-              <div className="w-[1px] h-8 bg-on-primary/30"></div>
-              <div>
-                <p className="text-h3 font-bold">98%</p>
-                <p className="text-label-sm opacity-80">Attendance</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Stats */}
-        <div className="lg:col-span-2 grid grid-cols-2 gap-4">
-          <div className="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-center items-center text-center">
-             <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-3">
-              <span className="material-symbols-outlined">assignment</span>
-            </div>
-            <p className="text-h2 font-bold text-on-surface">3</p>
-            <p className="text-label-sm text-on-surface-variant">Pending Assignments</p>
-          </div>
-          
-          <div className="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex flex-col justify-center items-center text-center">
-             <div className="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-3">
-              <span className="material-symbols-outlined">check_circle</span>
-            </div>
-            <p className="text-h2 font-bold text-on-surface">12</p>
-            <p className="text-label-sm text-on-surface-variant">Completed Lessons</p>
-          </div>
-
-          <div className="col-span-2 bg-surface-container-low p-6 rounded-2xl border border-outline-variant flex items-center justify-between">
-            <div>
-              <h3 className="font-bold text-on-surface text-h3">Advanced Physics 301</h3>
-              <p className="text-label-sm text-on-surface-variant">Next class today at 10:00 AM</p>
-            </div>
-            <button 
-              onClick={() => router.push('/room/class_101')}
-              className="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center gap-2 hover:bg-primary/90 transition shadow-lg"
-            >
-              Join Class
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Course Progress */}
-        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6">
-          <h2 className="text-h3 font-bold text-on-surface mb-6">Course Progress</h2>
-          
-          <div className="space-y-6">
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-bold text-on-surface text-label-md">Advanced Physics 301</h4>
-                <span className="text-label-sm font-bold text-primary">75%</span>
-              </div>
-              <div className="w-full bg-surface-container-highest rounded-full h-2.5">
-                <div className="bg-primary h-2.5 rounded-full" style={{ width: '75%' }}></div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-bold text-on-surface text-label-md">Calculus I</h4>
-                <span className="text-label-sm font-bold text-primary">40%</span>
-              </div>
-              <div className="w-full bg-surface-container-highest rounded-full h-2.5">
-                <div className="bg-primary h-2.5 rounded-full" style={{ width: '40%' }}></div>
-              </div>
-            </div>
-
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-bold text-on-surface text-label-md">Intro to Literature</h4>
-                <span className="text-label-sm font-bold text-primary">90%</span>
-              </div>
-              <div className="w-full bg-surface-container-highest rounded-full h-2.5">
-                <div className="bg-primary h-2.5 rounded-full" style={{ width: '90%' }}></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Action Items / Homework */}
-        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant p-6">
-          <h2 className="text-h3 font-bold text-on-surface mb-6">Upcoming Deadlines</h2>
-          
-          <div className="space-y-3">
-            <div className={`flex items-center justify-between p-4 rounded-xl ${isPaid ? 'bg-surface border border-outline-variant' : 'bg-error-container/20 border border-error-container'}`}>
-              <div className="flex items-center gap-3">
-                <span className={`material-symbols-outlined ${isPaid ? 'text-primary' : 'text-error'}`}>
-                  {isPaid ? 'check_circle' : 'payments'}
-                </span>
-                <div>
-                  <h4 className="font-bold text-on-surface text-label-md">Overdue Tuition Payment</h4>
-                  <p className={`text-label-sm ${isPaid ? 'text-on-surface-variant' : 'text-error'}`}>
-                    {isPaid ? 'Paid successfully' : 'Due Yesterday, $150.00'}
-                  </p>
+            <h2 className="text-xl font-extrabold text-on-primary-container mb-1">Your Tutors</h2>
+            <p className="text-on-primary-container/80 text-sm mb-6">You have {assignments?.length || 0} active subjects.</p>
+            
+            <div className="space-y-3">
+              {assignments?.slice(0, 2).map((a: any) => (
+                <div key={a.id} className="bg-surface/20 p-4 rounded-2xl backdrop-blur-sm border border-surface/30">
+                  <p className="font-extrabold text-on-primary-container">{a.request?.subject}</p>
+                  <p className="text-sm text-on-primary-container/90 mt-1">with {a.tutor?.user?.full_name}</p>
                 </div>
-              </div>
-              <button 
-                onClick={() => !isPaid && setIsPaymentModalOpen(true)}
-                disabled={isPaid}
-                className={`px-4 py-2 rounded-lg text-label-sm font-bold shadow-sm ${isPaid ? 'bg-surface-container-high text-on-surface-variant cursor-not-allowed' : 'bg-primary text-on-primary hover:bg-primary/90'}`}
-              >
-                {isPaid ? 'Receipt' : 'Pay Now'}
-              </button>
+              ))}
+              {assignments?.length === 0 && (
+                <p className="text-sm font-medium text-on-primary-container/80">You have not been assigned any tutors yet.</p>
+              )}
+            </div>
+          </div>
+          <span className="material-symbols-outlined absolute -right-4 -bottom-4 text-[150px] text-primary opacity-10 rotate-[-15deg] group-hover:rotate-[-5deg] group-hover:scale-110 transition-transform duration-500">
+            school
+          </span>
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant flex items-center justify-between shadow-sm">
+            <div>
+              <h3 className="font-bold text-on-surface text-lg">Notifications</h3>
+              <p className="text-sm text-on-surface-variant mt-1">You have {unreadNotifications} unread messages.</p>
+            </div>
+            <Link href="/student/notifications" className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center hover:bg-secondary hover:text-on-secondary transition-colors relative">
+              <span className="material-symbols-outlined">notifications</span>
+              {unreadNotifications > 0 && (
+                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full animate-pulse"></span>
+              )}
+            </Link>
+          </div>
+
+          <div className="bg-surface-container-lowest rounded-3xl border border-outline-variant p-6 shadow-sm">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="font-bold text-on-surface text-lg">Next Class</h2>
+              <Link href="/student/schedule" className="text-sm font-bold text-primary hover:underline">Full Schedule</Link>
             </div>
             
-            <div className="flex items-center justify-between p-4 rounded-xl bg-secondary-container/10 border border-secondary-container">
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-secondary">assignment</span>
-                <div>
-                  <h4 className="font-bold text-on-surface text-label-md">Calculus Worksheet 4</h4>
-                  <p className="text-label-sm text-on-surface-variant">Due Tomorrow, 10:00 AM</p>
-                </div>
+            {assignments?.length === 0 ? (
+              <p className="text-sm text-on-surface-variant py-4 text-center">No upcoming classes.</p>
+            ) : (
+              <div className="space-y-4">
+                {assignments?.slice(0, 1).map((a: any) => (
+                  <div key={a.id} className="bg-surface-container-low p-5 rounded-2xl border border-outline-variant">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <p className="font-extrabold text-on-surface">{a.request?.subject}</p>
+                        <p className="text-sm text-on-surface-variant mt-1">{a.tutor?.user?.full_name}</p>
+                      </div>
+                      <span className="px-3 py-1 bg-primary-container text-on-primary-container text-xs font-bold rounded-full">
+                        {a.schedules?.[0]?.day_of_week}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-medium text-on-surface-variant bg-surface-container p-3 rounded-xl mt-4">
+                      <span className="material-symbols-outlined text-[18px]">schedule</span>
+                      {a.schedules?.[0]?.time} ({a.schedules?.[0]?.duration})
+                    </div>
+                  </div>
+                ))}
               </div>
-              <button className="px-4 py-2 bg-white border border-outline-variant rounded-lg text-label-sm font-bold shadow-sm hover:bg-surface-container-low">View</button>
-            </div>
+            )}
           </div>
         </div>
       </div>
-      <PaymentModal 
-        isOpen={isPaymentModalOpen}
-        onClose={() => setIsPaymentModalOpen(false)}
-        amount={150.00}
-        description="Overdue Tuition (Calculus 101)"
-        onSuccess={() => setIsPaid(true)}
-      />
     </div>
   );
 }

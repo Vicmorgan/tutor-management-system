@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -47,126 +49,92 @@ export default function LoginPage() {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#f8f9ff',
-      padding: '1rem',
-      fontFamily: "'Inter', sans-serif",
-    }}>
-      <div style={{
-        width: '100%',
-        maxWidth: '440px',
-        backgroundColor: '#ffffff',
-        borderRadius: '20px',
-        boxShadow: '0 8px 40px rgba(0,108,73,0.12)',
-        padding: '48px 40px',
-        border: '1px solid #bbcabf',
-      }}>
+    <div className="min-h-screen flex items-center justify-center bg-background p-4 font-sans">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="w-full max-w-[440px] bg-surface rounded-[24px] shadow-xl shadow-primary/5 p-10 border border-outline-variant/30 relative overflow-hidden"
+      >
+        {/* Decorative background blur */}
+        <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        {/* Logo */}
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <div style={{
-            width: '64px', height: '64px', borderRadius: '16px',
-            backgroundColor: '#006c49', display: 'flex', alignItems: 'center',
-            justifyContent: 'center', margin: '0 auto 16px',
-            boxShadow: '0 4px 16px rgba(0,108,73,0.3)',
-          }}>
-            <span className="material-symbols-outlined" style={{ color: '#fff', fontSize: '32px' }}>school</span>
+        <div className="relative z-10">
+          {/* Logo */}
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary/30">
+              <span className="material-symbols-outlined text-on-primary text-[32px]">school</span>
+            </div>
+            <h1 className="text-3xl font-extrabold text-primary mb-1 tracking-tight">EduTeach</h1>
+            <p className="text-sm text-on-surface-variant">Sign in to your portal</p>
           </div>
-          <h1 style={{ fontSize: '28px', fontWeight: '800', color: '#006c49', margin: '0 0 4px' }}>EduTeach</h1>
-          <p style={{ fontSize: '14px', color: '#3c4a42', margin: 0 }}>Sign in to your portal</p>
+
+          {/* Error */}
+          {error && (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-error-container text-on-error-container rounded-xl p-3 mb-6 text-sm font-semibold flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-[18px]">error</span>
+              {error}
+            </motion.div>
+          )}
+
+          {/* Form */}
+          <form onSubmit={handleLogin} className="flex flex-col gap-5">
+            <div>
+              <label className="block text-[13px] font-bold mb-1.5 text-on-surface">
+                Email Address
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="admin@eduteach.com"
+                className="w-full box-border px-4 py-3 rounded-xl border border-outline-variant/50 text-sm bg-surface-container-low text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-[13px] font-bold mb-1.5 text-on-surface">
+                Password
+              </label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="••••••••"
+                className="w-full box-border px-4 py-3 rounded-xl border border-outline-variant/50 text-sm bg-surface-container-low text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full p-3.5 rounded-xl text-on-primary text-[15px] font-bold shadow-lg shadow-primary/20 transition-all ${
+                loading ? 'bg-outline-variant cursor-not-allowed shadow-none' : 'bg-primary hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30'
+              }`}
+            >
+              {loading ? 'Signing in...' : 'Sign In'}
+            </button>
+          </form>
+
+          {/* Demo credentials */}
+          <div className="mt-8 p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/20 text-xs text-on-surface-variant leading-relaxed">
+            <p className="font-extrabold text-on-surface mb-2">Demo Credentials:</p>
+            <p><strong>Admin:</strong> admin@eduteach.com / Admin1234!</p>
+            <p><strong>Tutor:</strong> tutor@eduteach.com / Tutor1234!</p>
+            <p><strong>Student:</strong> student@eduteach.com / Student1234!</p>
+          </div>
+          
+          <div className="mt-6 text-center text-sm text-on-surface-variant">
+            Don't have an account? <Link href="/register" className="text-primary font-bold hover:underline transition-all">Join as a Tutor</Link>
+          </div>
         </div>
-
-        {/* Error */}
-        {error && (
-          <div style={{
-            backgroundColor: '#ffdad6', color: '#93000a',
-            borderRadius: '10px', padding: '12px 16px',
-            marginBottom: '20px', fontSize: '14px', fontWeight: '500',
-          }}>
-            {error}
-          </div>
-        )}
-
-        {/* Form */}
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px', color: '#0b1c30' }}>
-              Email Address
-            </label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              placeholder="admin@eduteach.com"
-              style={{
-                width: '100%', boxSizing: 'border-box',
-                padding: '12px 16px', borderRadius: '12px',
-                border: '1.5px solid #bbcabf', fontSize: '14px',
-                backgroundColor: '#eff4ff', color: '#0b1c30', outline: 'none',
-                fontFamily: "'Inter', sans-serif",
-              }}
-            />
-          </div>
-          <div>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: '600', marginBottom: '6px', color: '#0b1c30' }}>
-              Password
-            </label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="••••••••"
-              style={{
-                width: '100%', boxSizing: 'border-box',
-                padding: '12px 16px', borderRadius: '12px',
-                border: '1.5px solid #bbcabf', fontSize: '14px',
-                backgroundColor: '#eff4ff', color: '#0b1c30', outline: 'none',
-                fontFamily: "'Inter', sans-serif",
-              }}
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              width: '100%', padding: '14px', borderRadius: '12px',
-              backgroundColor: loading ? '#6c7a71' : '#006c49',
-              color: '#fff', fontSize: '15px', fontWeight: '700',
-              border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
-              boxShadow: '0 4px 16px rgba(0,108,73,0.25)',
-              fontFamily: "'Inter', sans-serif",
-              transition: 'background-color 0.2s',
-            }}
-          >
-            {loading ? 'Signing in...' : 'Sign In'}
-          </button>
-        </form>
-
-        {/* Demo credentials */}
-        <div style={{
-          marginTop: '24px', padding: '16px', borderRadius: '12px',
-          backgroundColor: '#eff4ff', fontSize: '12px', color: '#3c4a42',
-          lineHeight: '1.8',
-        }}>
-          <p style={{ fontWeight: '700', color: '#0b1c30', margin: '0 0 8px' }}>Demo Credentials:</p>
-          <p style={{ margin: '2px 0' }}>
-            <strong>Admin:</strong> admin@eduteach.com / Admin1234!
-          </p>
-          <p style={{ margin: '2px 0' }}>
-            <strong>Tutor:</strong> tutor@eduteach.com / Tutor1234!
-          </p>
-          <p style={{ margin: '2px 0' }}>
-            <strong>Student:</strong> student@eduteach.com / Student1234!
-          </p>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

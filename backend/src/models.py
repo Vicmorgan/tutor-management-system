@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Enum, Numeric, Text
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Enum, Numeric, Text, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import enum
@@ -9,18 +9,26 @@ class UserRole(str, enum.Enum):
     TUTOR = "TUTOR"
     STUDENT = "STUDENT"
 
-class PaymentStatus(str, enum.Enum):
+class RequestStatus(str, enum.Enum):
+    DRAFT = "DRAFT"
+    OPEN = "OPEN"
+    FILLED = "FILLED"
+    CLOSED = "CLOSED"
+
+class ApplicationStatus(str, enum.Enum):
     PENDING = "PENDING"
-    PAID = "PAID"
-    OVERDUE = "OVERDUE"
+    ACCEPTED = "ACCEPTED"
+    REJECTED = "REJECTED"
 
-class EnrollmentStatus(str, enum.Enum):
+class TutorStatus(str, enum.Enum):
+    PENDING = "PENDING"
     ACTIVE = "ACTIVE"
-    COMPLETED = "COMPLETED"
+    SUSPENDED = "SUSPENDED"
+    ON_LEAVE = "ON_LEAVE"
 
-class AttendanceStatus(str, enum.Enum):
-    PRESENT = "PRESENT"
-    ABSENT = "ABSENT"
+class StudentStatus(str, enum.Enum):
+    ACTIVE = "ACTIVE"
+    SUSPENDED = "SUSPENDED"
 
 class User(Base):
     __tablename__ = "users"
@@ -30,93 +38,110 @@ class User(Base):
     password_hash = Column(String(255), nullable=False)
     full_name = Column(String(255), nullable=False)
     role = Column(Enum(UserRole), nullable=False)
-    profile_details = Column(Text, nullable=True) # JSON string or plain text
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    # Relationships
-    courses_taught = relationship("Course", back_populates="tutor", foreign_keys='Course.tutor_id')
-    enrollments = relationship("Enrollment", back_populates="student")
-    payments = relationship("Payment", back_populates="student")
+    # Roles specific models
+    tutor_profile = relationship("Tutor", back_populates="user", uselist=False, cascade="all, delete-orphan")
+    student_profile = relationship("Student", back_populates="user", uselist=False, cascade="all, delete-orphan")
 
-class Course(Base):
-    __tablename__ = "courses"
+    # Relationships
+    notifications = relationship("Notification", back_populates="user", cascade="all, delete-orphan")
+
+class Tutor(Base):
+    __tablename__ = "tutors"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), unique=True, nullable=False)
+    rating = Column(Float, default=0.0)
+    status = Column(Enum(TutorStatus), default=TutorStatus.ACTIVE)
+
+    user = relationship("User", back_populates="tutor_profile")
+    applications = relationship("Application", back_populates="tutor", cascade="all, delete-orphan")
+    assignments = relationship("Assignment", back_populates="tutor", cascade="all, delete-orphan")
+
+class Student(Base):
+    __tablename__ = "students"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), unique=True, nullable=False)
+    parent_name = Column(String(255), nullable=True)
+    parent_phone = Column(String(50), nullable=True)
+    status = Column(Enum(StudentStatus), default=StudentStatus.ACTIVE)
+
+    user = relationship("User", back_populates="student_profile")
+    requests = relationship("TutorRequest", back_populates="student", cascade="all, delete-orphan")
+    assignments = relationship("Assignment", back_populates="student", cascade="all, delete-orphan")
+
+class TutorRequest(Base):
+    __tablename__ = "tutor_requests"
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
-    price = Column(Numeric(10, 2), nullable=False)
-    department = Column(String(100), nullable=True)
-    tutor_id = Column(Integer, ForeignKey("users.id"))
+    subject = Column(String(255), nullable=False)
+    student_id = Column(Integer, ForeignKey("students.id", ondelete="CASCADE"), nullable=False)
+    student_level = Column(String(100), nullable=True)
+    salary = Column(Numeric(10, 2), nullable=False)
+    mode = Column(String(50), nullable=False) # e.g., "Physical", "Online"
+    location = Column(String(255), nullable=True)
+    days_of_week = Column(String(255), nullable=True) # e.g., "Mon, Wed"
+    time = Column(String(100), nullable=True) # e.g., "10:00 AM"
+    duration = Column(String(50), nullable=True) # e.g., "2 hours"
+    start_date = Column(DateTime(timezone=True), nullable=True)
+    notes = Column(Text, nullable=True)
+    status = Column(Enum(RequestStatus), default=RequestStatus.OPEN)
+    created_by = Column(Integer, ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    # Relationships
-    tutor = relationship("User", back_populates="courses_taught", foreign_keys=[tutor_id])
-    enrollments = relationship("Enrollment", back_populates="course")
-    sessions = relationship("Session", back_populates="course")
-    assignments = relationship("Assignment", back_populates="course")
+    student = relationship("Student", back_populates="requests")
+    admin_creator = relationship("User", foreign_keys=[created_by])
+    applications = relationship("Application", back_populates="request", cascade="all, delete-orphan")
+    assignments = relationship("Assignment", back_populates="request", cascade="all, delete-orphan")
 
-class Enrollment(Base):
-    __tablename__ = "enrollments"
-
-    id = Column(Integer, primary_key=True, index=True)
-    student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False)
-    status = Column(Enum(EnrollmentStatus), default=EnrollmentStatus.ACTIVE)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    # Relationships
-    student = relationship("User", back_populates="enrollments")
-    course = relationship("Course", back_populates="enrollments")
-
-class Session(Base):
-    __tablename__ = "sessions"
+class Application(Base):
+    __tablename__ = "applications"
 
     id = Column(Integer, primary_key=True, index=True)
-    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False)
-    start_time = Column(DateTime(timezone=True), nullable=False)
-    end_time = Column(DateTime(timezone=True), nullable=False)
-    virtual_link = Column(String(500), nullable=True)
-    
-    # Relationships
-    course = relationship("Course", back_populates="sessions")
-    attendance_records = relationship("Attendance", back_populates="session")
+    request_id = Column(Integer, ForeignKey("tutor_requests.id", ondelete="CASCADE"), nullable=False)
+    tutor_id = Column(Integer, ForeignKey("tutors.id", ondelete="CASCADE"), nullable=False)
+    status = Column(Enum(ApplicationStatus), default=ApplicationStatus.PENDING)
+    applied_at = Column(DateTime(timezone=True), server_default=func.now())
 
-class Attendance(Base):
-    __tablename__ = "attendance"
-
-    id = Column(Integer, primary_key=True, index=True)
-    session_id = Column(Integer, ForeignKey("sessions.id"), nullable=False)
-    student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    status = Column(Enum(AttendanceStatus), nullable=False)
-
-    # Relationships
-    session = relationship("Session", back_populates="attendance_records")
-    student = relationship("User")
+    request = relationship("TutorRequest", back_populates="applications")
+    tutor = relationship("Tutor", back_populates="applications")
 
 class Assignment(Base):
     __tablename__ = "assignments"
 
     id = Column(Integer, primary_key=True, index=True)
-    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False)
-    title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
-    due_date = Column(DateTime(timezone=True), nullable=False)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    request_id = Column(Integer, ForeignKey("tutor_requests.id", ondelete="CASCADE"), nullable=False)
+    tutor_id = Column(Integer, ForeignKey("tutors.id", ondelete="CASCADE"), nullable=False)
+    student_id = Column(Integer, ForeignKey("students.id", ondelete="CASCADE"), nullable=False)
+    assigned_at = Column(DateTime(timezone=True), server_default=func.now())
 
-    # Relationships
-    course = relationship("Course", back_populates="assignments")
+    request = relationship("TutorRequest", back_populates="assignments")
+    tutor = relationship("Tutor", back_populates="assignments")
+    student = relationship("Student", back_populates="assignments")
+    schedules = relationship("Schedule", back_populates="assignment", cascade="all, delete-orphan")
 
-class Payment(Base):
-    __tablename__ = "payments"
+class Schedule(Base):
+    __tablename__ = "schedules"
 
     id = Column(Integer, primary_key=True, index=True)
-    student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False)
-    amount = Column(Numeric(10, 2), nullable=False)
-    status = Column(Enum(PaymentStatus), default=PaymentStatus.PENDING)
-    due_date = Column(DateTime(timezone=True), nullable=False)
-    paid_at = Column(DateTime(timezone=True), nullable=True)
+    assignment_id = Column(Integer, ForeignKey("assignments.id", ondelete="CASCADE"), nullable=False)
+    day_of_week = Column(String(50), nullable=False) # e.g. "Monday"
+    time = Column(String(100), nullable=False) # e.g. "10:00 AM"
+    duration = Column(String(50), nullable=True)
 
-    # Relationships
-    student = relationship("User", back_populates="payments")
-    course = relationship("Course")
+    assignment = relationship("Assignment", back_populates="schedules")
+
+class Notification(Base):
+    __tablename__ = "notifications"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    title = Column(String(255), nullable=False)
+    message = Column(Text, nullable=False)
+    is_read = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User", back_populates="notifications")

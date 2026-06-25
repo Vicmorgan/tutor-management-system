@@ -23,7 +23,7 @@ type SidebarProps = {
 };
 
 export const Sidebar = ({ title, subtitle, navItems, primaryAction }: SidebarProps) => {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const router = useRouter();
 
   const handleLogout = () => {
@@ -70,7 +70,7 @@ export const Sidebar = ({ title, subtitle, navItems, primaryAction }: SidebarPro
           </button>
         )}
         <div className="space-y-1">
-          <Link href="/settings" className="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg">
+          <Link href={`/${user?.role?.toLowerCase() || 'admin'}/settings`} className="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-all duration-200 rounded-lg">
             <span className="material-symbols-outlined">settings</span>
             <span className="font-label-md text-label-md">Settings</span>
           </Link>

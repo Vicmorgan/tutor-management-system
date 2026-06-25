@@ -16,11 +16,11 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   
   const adminNavItems: NavItem[] = [
     { label: 'Dashboard', icon: 'dashboard', href: '/admin', isActive: pathname === '/admin' },
+    { label: 'Tutor Requests', icon: 'assignment', href: '/admin/requests', isActive: pathname === '/admin/requests' },
+    { label: 'Applications', icon: 'inbox', href: '/admin/applications', isActive: pathname === '/admin/applications' },
     { label: 'Tutors', icon: 'supervisor_account', href: '/admin/tutors', isActive: pathname === '/admin/tutors' },
     { label: 'Students', icon: 'school', href: '/admin/students', isActive: pathname === '/admin/students' },
-    { label: 'Schedule', icon: 'calendar_today', href: '/admin/schedule', isActive: pathname === '/admin/schedule' },
-    { label: 'Payments', icon: 'payments', href: '/admin/payments', isActive: pathname === '/admin/payments' },
-    { label: 'Reports', icon: 'assessment', href: '/admin/reports', isActive: pathname === '/admin/reports' },
+    { label: 'Assignments', icon: 'event_available', href: '/admin/assignments', isActive: pathname === '/admin/assignments' },
   ];
 
   return (
@@ -30,9 +30,9 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
         subtitle="Management Portal" 
         navItems={adminNavItems} 
         primaryAction={{
-          label: 'New Schedule',
+          label: 'New Request',
           icon: 'add',
-          onClick: () => console.log('New Schedule clicked')
+          onClick: () => window.location.href = '/admin/requests/new'
         }}
       />
       <div className="ml-[280px] flex-1 flex flex-col min-w-0">
