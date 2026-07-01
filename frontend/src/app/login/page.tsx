@@ -122,13 +122,14 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Demo credentials */}
+          {/* Demo credentials 
           <div className="mt-8 p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/20 text-xs text-on-surface-variant leading-relaxed">
             <p className="font-extrabold text-on-surface mb-2">Demo Credentials:</p>
             <p><strong>Admin:</strong> admin@eduteach.com / Admin1234!</p>
             <p><strong>Tutor:</strong> tutor@eduteach.com / Tutor1234!</p>
             <p><strong>Student:</strong> student@eduteach.com / Student1234!</p>
           </div>
+          */}
           
           <div className="mt-6 text-center text-sm text-on-surface-variant">
             Don't have an account? <Link href="/register" className="text-primary font-bold hover:underline transition-all">Join as a Tutor</Link>
